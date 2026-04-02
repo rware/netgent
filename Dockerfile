@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     openssh-server \
     libnss3 libxss1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libgbm1 fonts-liberation \
     python3-xlib python3-tk scrot \
+    tcpdump ffmpeg \
   && rm -rf /var/lib/apt/lists/*
 
 # Install Google Chrome
@@ -51,5 +52,12 @@ COPY src/utils/ src/utils/
 # Copy and use the startup script
 COPY scripts/start.sh /usr/local/bin/start-netgent
 RUN chmod +x /usr/local/bin/start-netgent
+
+# Capture scripts for data collection
+COPY scripts/capture.sh /usr/local/bin/capture-netgent
+RUN chmod +x /usr/local/bin/capture-netgent
+
+COPY scripts/start-capture.sh /usr/local/bin/start-netgent-capture
+RUN chmod +x /usr/local/bin/start-netgent-capture
 
 ENTRYPOINT ["/usr/local/bin/start-netgent"]
