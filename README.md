@@ -67,7 +67,7 @@ docker run --platform=linux/amd64 --rm -d \
   -p 8080:8080 \
   -v "$PWD/examples/basic_example/google_result.json:/executable_code.json:ro" \
   -v "$PWD/out:/out" \
-  netgent:amd64 \
+  netgent \
   -e /executable_code.json \
   --user-data-dir /tmp/browser-cache \
   -o /out/execution_result.json \
