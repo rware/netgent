@@ -154,3 +154,7 @@ downloaded_files/
 google_creds.json
 
 google_key.json
+
+# Capture and build output
+capture_output/
+out/
