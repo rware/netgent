@@ -148,3 +148,95 @@ results = agent.run(state_prompts=[], state_repository=your_saved_repo)
 See the example scripts and CLI source for more patterns, and customize credentials or cache directory as needed.
 
 For API key configuration details, refer to [API_KEYS.md](API_KEYS.md).
+
+## Running a YouTube Experiment with Data Capture
+
+This walkthrough runs the YouTube video streaming workflow and captures all network and visual evidence using 4 methods: packet capture (tcpdump), Chrome network logs, screenshots, and screen recording.
+
+### Prerequisites
+
+- Docker installed
+- The netgent image built (see [Initializing the Docker Container](#initializing-the-docker-container))
+
+### 1. Build the Image
+
+```bash
+docker build --platform linux/amd64 -t netgent .
+```
+
+### 2. Run the YouTube Workflow with Capture
+
+The YouTube example navigates to a YouTube video and interacts with the video player seek bar. A pre-generated executable is included at `examples/video_streaming/youtube-non-navigate/results/youtube-non-navigate_result.json` — no LLM or API keys are needed.
+
+```bash
+mkdir -p capture_output
+
+docker run --rm \
+  --cap-add=NET_RAW \
+  --entrypoint /usr/local/bin/start-netgent-capture \
+  -v "$PWD/capture_output:/capture" \
+  -v "$PWD/examples/video_streaming/youtube-non-navigate/results/youtube-non-navigate_result.json:/home/agent/app/executable.json:ro" \
+  -p 8080:8080 \
+  netgent \
+  -e /home/agent/app/executable.json -s
+```
+
+While it runs, open http://localhost:8080 to watch the browser automation live via noVNC.
+
+### 3. What Gets Captured
+
+When the run completes, `capture_output/` will contain:
+
+```
+capture_output/
+├── pcap/
+│   └── capture_<timestamp>.pcap          # Network packet capture
+├── screenshots/
+│   ├── screenshot_0000_<timestamp>.png   # Taken every 2 seconds
+│   ├── screenshot_0001_<timestamp>.png
+│   └── ...
+├── chrome_netlog_<timestamp>.json        # Chrome HTTP-level network log
+└── recording_<timestamp>.mp4             # Screen recording of the full run
+```
+
+| Capture Type | What It Shows | How to Analyze |
+|---|---|---|
+| **Packet capture** | DNS lookups, TLS handshakes, all network connections | `tshark -r capture_output/pcap/*.pcap -q -z conv,tcp` or open in Wireshark |
+| **Chrome net-log** | HTTP request/response headers, timing, TLS details | Open in [NetLog Viewer](https://netlog-viewer.appspot.com/) or `chrome://net-export/` |
+| **Screenshots** | Periodic snapshots of the browser display | View the PNG files directly |
+| **Screen recording** | Full video of the automation session | Play with any video player (VLC, mpv, etc.) |
+
+### 4. Configuration
+
+| Environment Variable | Default | Description |
+|---|---|---|
+| `CAPTURE_DIR` | `/capture` | Output directory inside the container |
+| `SCREENSHOT_INTERVAL` | `2` | Seconds between screenshots |
+
+Example with 1-second screenshot interval:
+
+```bash
+docker run --rm \
+  --cap-add=NET_RAW \
+  --entrypoint /usr/local/bin/start-netgent-capture \
+  -e SCREENSHOT_INTERVAL=1 \
+  -v "$PWD/capture_output:/capture" \
+  -v "$PWD/examples/video_streaming/youtube-non-navigate/results/youtube-non-navigate_result.json:/home/agent/app/executable.json:ro" \
+  -p 8080:8080 \
+  netgent \
+  -e /home/agent/app/executable.json -s
+```
+
+### 5. Running Without Capture
+
+To run the same YouTube workflow without any data capture, use the default entrypoint:
+
+```bash
+docker run --rm \
+  -v "$PWD/examples/video_streaming/youtube-non-navigate/results/youtube-non-navigate_result.json:/home/agent/app/executable.json:ro" \
+  -p 8080:8080 \
+  netgent \
+  -e /home/agent/app/executable.json -s
+```
+
+For more details on the capture system, see [docs/CAPTURE.md](docs/CAPTURE.md).
