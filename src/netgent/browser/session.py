@@ -22,6 +22,10 @@ class BrowserSession:
         ]
         if user_data_dir:
             self._default_args.append(f" --user-data-dir={user_data_dir}")
+        import os
+        net_log_path = os.environ.get('NETGENT_NET_LOG')
+        if net_log_path:
+            self._default_args.append(f"--log-net-log={net_log_path}")
         self._args: str = ",".join(self._default_args)
         self.proxy: str = proxy
         self.user_data_dir: str | None = user_data_dir
