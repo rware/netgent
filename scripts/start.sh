@@ -42,7 +42,7 @@ if [ "$USE_VDISPLAY" -eq 1 ]; then
   # Start websockify (noVNC) - bind to 0.0.0.0 to allow access from outside container
   echo "Starting websockify on port $NOVNC_PORT..."
   cd /opt/noVNC/utils/websockify || { echo "ERROR: Cannot find /opt/noVNC/utils/websockify"; exit 1; }
-  
+
   # Try different methods to start websockify
   WEBSOCKIFY_PID=""
   if [ -f "websockify.py" ]; then
@@ -58,9 +58,9 @@ if [ "$USE_VDISPLAY" -eq 1 ]; then
     python3 -m websockify --web /opt/noVNC $NOVNC_PORT localhost:$VNC_PORT > /tmp/websockify.log 2>&1 &
     WEBSOCKIFY_PID=$!
   fi
-  
+
   sleep 3
-  
+
   # Verify websockify is running
   if [ -n "$WEBSOCKIFY_PID" ] && ps -p $WEBSOCKIFY_PID > /dev/null 2>&1; then
     echo "✓ websockify is running (PID: $WEBSOCKIFY_PID)"
@@ -71,7 +71,7 @@ if [ "$USE_VDISPLAY" -eq 1 ]; then
       tail -20 /tmp/websockify.log
     fi
   fi
-  
+
   # Check if port is listening
   if netstat -tuln 2>/dev/null | grep -q ":$NOVNC_PORT " || ss -tuln 2>/dev/null | grep -q ":$NOVNC_PORT "; then
     echo "✓ Port $NOVNC_PORT is listening"
@@ -79,7 +79,7 @@ if [ "$USE_VDISPLAY" -eq 1 ]; then
     echo "⚠ WARNING: Port $NOVNC_PORT may not be listening. Checking processes..."
     ps aux | grep -E 'websockify|x11vnc' | grep -v grep || echo "No VNC processes found"
   fi
-  
+
   echo "VNC/noVNC should be accessible at http://localhost:$NOVNC_PORT"
 else
   # Start a bare X server so DISPLAY is usable, but skip VNC/noVNC
@@ -95,4 +95,4 @@ mkdir -p /run/sshd
 /usr/sbin/sshd
 
 # Finally, launch the Python application:
-exec python3 /home/agent/app/src/netgent/cli.py "$@"
+exec python3 /home/agent/app/netgent/src/netgent/cli.py "$@"
