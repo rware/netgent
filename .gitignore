@@ -158,3 +158,6 @@ google_key.json
 # Capture and build output
 capture_output/
 out/
+# API keys (never commit)
+api_keys/
+api_keys.json

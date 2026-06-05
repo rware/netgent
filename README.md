@@ -86,13 +86,13 @@ Note: With `-s` enabled, you can view the browser automation at http://localhost
 ```bash
 docker run --platform=linux/amd64 --rm -d \
   -p 8080:8080 \
-  -v "$PWD/api_keys.json:/keys.json:ro" \
-  -v "$PWD/examples/prompts/google_prompts.json:/prompts.json:ro" \
+  -v "$PWD/api_keys/api_keys.json:/keys.json:ro" \
+  -v "$PWD/examples/basic_example/prompts/google_prompts.json:/prompts.json:ro" \
   -v "$PWD/out:/out" \
-  netgent:amd64 \
+  netgent \
   -g /keys.json '{}' /prompts.json \
   --user-data-dir /tmp/browser-cache \
-  -o /out/state_repository.json \
+  -o /out/google_result.json \
   -s
 ```
 

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+echo "DOING SOMETHING WITH start.sh"
+
 # Only set DISPLAY if virtual display is enabled later
 export RESOLUTION="${RESOLUTION:-1920x1080x24}"
 export NOVNC_PORT="${NOVNC_PORT:-8080}"
@@ -94,5 +96,8 @@ fi
 mkdir -p /run/sshd
 /usr/sbin/sshd
 
+echo "EXECUTING CLI.PY"
+
 # Finally, launch the Python application:
+#exec python3 /home/agent/app/netgent/src/netgent/cli.py "$@"
 exec python3 /home/agent/app/netgent/src/netgent/cli.py "$@"

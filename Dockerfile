@@ -8,7 +8,7 @@ ENV DISPLAY=:99 \
     DBUS_SESSION_BUS_ADDRESS=/dev/null \
     PIP_NO_CACHE_DIR=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
-    PYTHONPATH=/home/agent/app/src
+    PYTHONPATH=/home/agent/app/netgent/src
 
 WORKDIR /home/agent/app
 
@@ -46,8 +46,16 @@ RUN pip install -r requirements.txt \
   && seleniumbase get chromedriver --path
 
 # Copy Application
-COPY src/netgent/ src/netgent/
-COPY src/utils/ src/utils/
+# Layout mirrors the prudentia root Dockerfile: netgent lives under a
+# /home/agent/app/netgent/ subfolder so start-netgent's hardcoded
+# /home/agent/app/netgent/src/netgent/cli.py path resolves.
+COPY src/netgent/ netgent/src/netgent/
+COPY src/utils/ netgent/src/utils/
+
+# capture.sh execs /home/agent/app/src/netgent/cli.py, so also place cli.py there
+# (matches the prudentia root Dockerfile, which copies it to both locations).
+COPY src/netgent/cli.py /home/agent/app/src/netgent/cli.py
+RUN chmod +x /home/agent/app/src/netgent/cli.py
 
 # Copy and use the startup script
 COPY scripts/start.sh /usr/local/bin/start-netgent
