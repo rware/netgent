@@ -107,7 +107,7 @@ def load_prompts(prompts_input: str) -> List[StatePrompt]:
         except json.JSONDecodeError:
             print(f"Error: Invalid JSON format in prompts string.")
             sys.exit(1)
-    
+
     # Convert to StatePrompt objects
     prompts = []
     for prompt_data in prompts_data:
@@ -119,7 +119,7 @@ def load_prompts(prompts_input: str) -> List[StatePrompt]:
             end_state=prompt_data.get('end_state', '')
         )
         prompts.append(prompt)
-    
+
     return prompts
 
 
@@ -128,12 +128,12 @@ def create_llm(api_keys: Dict[str, str]) -> Any:
     # Try Google Generative AI first
     if 'google_api_key' in api_keys:
         return ChatGoogleGenerativeAI(
-            model="gemini-2.0-flash",
+            model="gemini-2.5-flash-lite",
             temperature=0.2,
             api_key=api_keys['google_api_key']
         )
 
-    return ChatVertexAI(model="gemini-2.0-flash", temperature=0.2)
+    return ChatVertexAI(model="gemini-2.5-flash-lite", temperature=0.2)
 
 
 def setup_browser_cache(credentials: Dict[str, str]) -> Optional[str]:
@@ -148,10 +148,10 @@ def setup_browser_cache(credentials: Dict[str, str]) -> Optional[str]:
 def execution_mode(args):
     """Run in code execution mode (-e)."""
     print("Running in Code Execution Mode...")
-    
+
     # Load executable code
     executable_code = load_executable_code(args.executable_code)
-    
+
     # Load credentials if provided (optional for execution mode)
     credentials = {}
     cache_file = None
@@ -159,18 +159,18 @@ def execution_mode(args):
         credentials = load_credentials(args.credentials)
     # Setup browser cache if provided (CLI flag takes precedence over credentials)
     cache_file = getattr(args, 'user_data_dir', None) or setup_browser_cache(credentials)
-    
+
     # Initialize agent with LLM disabled (execution mode)
     # Pass cache directory to browser session if available
     agent = NetGent(llm=None, llm_enabled=False, user_data_dir=cache_file)
-    
+
     print(f"Loaded {len(executable_code)} executable states")
     if cache_file:
         print(f"Using browser cache: {cache_file}")
     else:
         print("No browser cache specified - using fresh browser session")
     print("Starting execution...")
-    
+
     # Run the agent
     try:
         result = agent.run(state_prompts=[], state_repository=executable_code)
@@ -189,31 +189,31 @@ def execution_mode(args):
 def generation_mode(args):
     """Run in code generation mode (-g)."""
     print("Running in Code Generation Mode...")
-    
+
     # Load API keys
     api_keys = load_api_keys(args.api_keys)
-    
+
     # Load credentials
     credentials = load_credentials(args.credentials)
-    
+
     # Load prompts
     prompts = load_prompts(args.prompts)
-    
+
     # Setup browser cache if provided (CLI flag takes precedence over credentials)
     cache_file = getattr(args, 'user_data_dir', None) or setup_browser_cache(credentials)
-    
+
     # Create LLM instance
     llm = create_llm(api_keys)
-    
+
     # Initialize agent with LLM enabled (generation mode)
     # Pass cache directory to browser session if available
     agent = NetGent(llm=llm, llm_enabled=True, user_data_dir=cache_file)
-    
+
     print(f"Loaded {len(prompts)} state prompts")
     if cache_file:
         print(f"Using browser cache: {cache_file}")
     print("Starting code generation...")
-    
+
     # Run the agent
     try:
         result = agent.run(state_prompts=prompts, state_repository=[])
@@ -240,49 +240,49 @@ Examples:
   netgent -e executable_code.json
   netgent -e executable_code.json credentials.json
   netgent -e executable_code.json '{"browser_cache_file": "/path/to/cache"}' -s
-  
+
   # Code Generation Mode (credentials required)
   netgent -g api_keys.json credentials.json prompts.json
   netgent -g api_keys.json credentials.json '{"name": "test", "triggers": [], "actions": []}' -s
         """
     )
-    
+
     # Create mutually exclusive group for modes
     mode_group = parser.add_mutually_exclusive_group(required=True)
-    
+
     # Code execution mode
     mode_group.add_argument(
         '-e', '--execute',
         metavar='EXECUTABLE_CODE',
         help='Run in code execution mode with pre-generated executable code'
     )
-    
+
     # Code generation mode
     mode_group.add_argument(
         '-g', '--generate',
         metavar='API_KEYS',
         help='Run in code generation mode with API keys'
     )
-    
+
     # Common arguments
     parser.add_argument(
         'credentials',
         nargs='?',
         help='Login credentials as JSON file or JSON string (optional for execution mode, required for generation mode)'
     )
-    
+
     parser.add_argument(
         'prompts',
         nargs='?',
         help='User prompts in natural language (JSON file or JSON string) - required for generation mode'
     )
-    
+
     parser.add_argument(
         '-s', '--screen',
         action='store_true',
         help='Enable VNC/noVNC for live screen viewing and monitoring'
     )
-    
+
     parser.add_argument(
         '--user-data-dir',
         dest='user_data_dir',
@@ -295,15 +295,15 @@ Examples:
         action='version',
         version='NetGent 0.1.0'
     )
-    
+
     parser.add_argument(
         '-o', '--output',
         metavar='FILE',
         help='Write resulting JSON (state repository / execution result) to FILE'
     )
-    
+
     args = parser.parse_args()
-    
+
     # Validate arguments based on mode
     if args.execute:
         # Execution mode: executable_code, credentials (optional)
@@ -325,18 +325,18 @@ Examples:
         if not getattr(args, 'output', None):
             print("Error: Output file is required for generation mode. Use -o/--output <FILE>.")
             sys.exit(1)
-    
+
     # Print mode and screen status
     mode = "Code Execution" if args.execute else "Code Generation"
     screen_status = "with VNC enabled" if args.screen else "without VNC"
     print(f"Mode: {mode} ({screen_status})")
-    
+
     try:
         if args.execute:
             result = execution_mode(args)
         else:
             result = generation_mode(args)
-        
+
         # Save results if requested
         if hasattr(args, 'output') and args.output:
             to_save = result
@@ -346,11 +346,11 @@ Examples:
             with open(args.output, 'w') as f:
                 json.dump(_to_jsonable(to_save), f, indent=2)
             print(f"Results saved to {args.output}")
-        
+
         # Exit cleanly when done
         print("Task completed. Container will exit.")
         sys.exit(0)
-            
+
     except KeyboardInterrupt:
         print("\nExecution interrupted by user.")
         sys.exit(1)
