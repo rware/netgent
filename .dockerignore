@@ -1,0 +1,33 @@
+# Keep secrets, generated output, and bulky/irrelevant files OUT of the image.
+# Applies to `docker build` whose context is the netgent/ directory.
+
+# Secrets — never bake API keys into the image
+api_keys/
+api_keys.json
+.env
+*.env
+google_creds.json
+google_key.json
+
+# Generated run output (often root-owned and large)
+out/
+capture_output/
+
+# Version control / tooling
+.git
+.gitignore
+.dockerignore
+Dockerfile
+
+# Python / OS cruft
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.downloaded_files/
+downloaded_files/
+.DS_Store
+
+# Large media that may linger in the tree
+*.mp4
+*.pcap
