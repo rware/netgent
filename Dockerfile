@@ -45,12 +45,13 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt \
   && seleniumbase get chromedriver --path
 
-# Copy Application
-# Layout mirrors the prudentia root Dockerfile: netgent lives under a
-# /home/agent/app/netgent/ subfolder so start-netgent's hardcoded
+# Copy the ENTIRE netgent folder (not just src) into /home/agent/app/netgent/
+# so examples/, scripts/, docs/, etc. are all available in the image.
+# NOTE: this Dockerfile's build context IS the netgent/ dir, so the source is
+# "." (the context root), not "netgent/". The layout mirrors the prudentia root
+# Dockerfile, where start-netgent's hardcoded
 # /home/agent/app/netgent/src/netgent/cli.py path resolves.
-COPY src/netgent/ netgent/src/netgent/
-COPY src/utils/ netgent/src/utils/
+COPY . netgent/
 
 # capture.sh execs /home/agent/app/src/netgent/cli.py, so also place cli.py there
 # (matches the prudentia root Dockerfile, which copies it to both locations).
