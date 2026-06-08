@@ -265,3 +265,16 @@ sudo docker run --rm -it \
   /home/rware/prudentia/netgent/prudentiaPrompts/run_py_in_container.sh \
   /home/rware/prudentia/netgent/prudentiaPrompts/gemini-netgent-test.py
 ```
+
+4. run a generated workflow
+```bash
+ sudo docker run --rm \
+ --cap-add=NET_RAW \
+ --entrypoint /usr/local/bin/start-netgent-capture \
+ -p 8080:8080 \
+ -v "$PWD/capture_output:/capture" \
+ -v "$PWD/prudentiaPrompts/youtube-bunny-results.json:/home/agent/app/executable.json:ro" \
+ netgent \
+ -e /home/agent/app/executable.json \
+ -s
+ ```

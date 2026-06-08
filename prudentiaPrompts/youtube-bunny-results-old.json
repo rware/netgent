@@ -14,26 +14,32 @@
       {
         "type": "type",
         "params": {
-          "text": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "text": "https://www.youtube.com/watch?v=YE7VzlLtp-4",
           "by": "css selector",
           "selector": "input.truncate[id=\"input\"][type=\"search\"][autocomplete=\"off\"][role=\"combobox\"][placeholder*=\"Search Google or type a URL\"]",
           "x": 477.5,
-          "y": 483.0
+          "y": 487.0
         }
       },
       {
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "cr-searchbox-match[role=\"option\"][aria-describedby=\"\"][aria-label=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\"]",
+          "selector": "cr-searchbox-match[role=\"option\"][aria-describedby=\"\"][aria-label=\"https://www.youtube.com/watch?v=YE7VzlLtp-4\"]",
           "x": 496.5,
-          "y": 529.0
+          "y": 533.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 5
         }
       },
       {
         "type": "terminate",
         "params": {
-          "reason": "Successfully navigated to the YouTube video."
+          "reason": "Task completed successfully. The YouTube video page has loaded and the required wait time has elapsed."
         }
       }
     ],
@@ -47,7 +53,7 @@
       {
         "type": "url",
         "params": {
-          "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          "url": "https://www.youtube.com/watch?v=YE7VzlLtp-4"
         }
       }
     ],
@@ -56,18 +62,9 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "div.ytp-progress-bar[role=\"slider\"][aria-label*=\"Seek slider\"]",
-          "x": 489.0,
-          "y": 721.0625
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
           "selector": "button.ytp-play-button.ytp-button[title=\"\"][aria-label*=\"Pause (k)\"]",
           "x": 60.0,
-          "y": 752.0625
+          "y": 756.0625
         }
       },
       {
@@ -76,25 +73,7 @@
           "by": "css selector",
           "selector": "button.ytp-play-button.ytp-button[title=\"\"][aria-label*=\"Play keyboard shortcut k\"]",
           "x": 60.0,
-          "y": 752.0625
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.ytp-play-button.ytp-button[title=\"\"][aria-label*=\"Play keyboard shortcut k\"]",
-          "x": 60.0,
-          "y": 752.0625
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.ytp-play-button.ytp-button[title=\"\"][aria-label*=\"Play keyboard shortcut k\"]",
-          "x": 60.0,
-          "y": 752.0625
+          "y": 756.0625
         }
       },
       {
@@ -106,7 +85,7 @@
       {
         "type": "terminate",
         "params": {
-          "reason": "The task is complete. The video has been played and waited for 30 seconds as per the instructions."
+          "reason": "The task is to click the play button and wait for 30 seconds. The previous action was waiting for 30 seconds, and the video is playing. Therefore, the task is complete."
         }
       }
     ],
