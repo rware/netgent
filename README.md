@@ -254,12 +254,12 @@ docker build --platform linux/amd64 -t netgent .
 KEY=$(python3 -c "import json;print(json.load(open('api_keys/api_keys.json'))['google_api_key'])")
 ```
 
-3. run a python file to generate workflows
+3. run a python file to generate workflows (make sure to update the WORKFLOW_PATH in the file you are running so it points to a valid output location)
 ```bash
 sudo docker run --rm -it \
   -p 8080:8080 \
   -e GOOGLE_API_KEY="$KEY" \
-  -v "$PWD/prudentiaPrompts:/home/rware/prudentia/netgent/prudentiaPrompts" \
+  -v "$PWD/prudentiaPrompts:PATH_TO_PRUDENTIA/prudentia/netgent/prudentiaPrompts" \
   --entrypoint bash \
   netgent \
   PATH_TO_PRUDENTIA/prudentia/netgent/prudentiaPrompts/run_py_in_container.sh \
