@@ -65,10 +65,10 @@ NetGent provides a flexible command-line interface for automating workflows in t
 
 **Example:**
 ```bash
-docker build --platform linux/amd64 -t netgent .
+sudo docker build --platform linux/amd64 -t netgent .
 ```
 ```bash
-docker run --platform=linux/amd64 --rm -d \
+sudo docker run --platform=linux/amd64 --rm -d \
   -p 8080:8080 \
   -v "$PWD/examples/basic_example/google_result.json:/executable_code.json:ro" \
   -v "$PWD/out:/out" \
