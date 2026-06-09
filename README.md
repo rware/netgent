@@ -262,8 +262,8 @@ sudo docker run --rm -it \
   -v "$PWD/prudentiaPrompts:/home/rware/prudentia/netgent/prudentiaPrompts" \
   --entrypoint bash \
   netgent \
-  /home/rware/prudentia/netgent/prudentiaPrompts/run_py_in_container.sh \
-  /home/rware/prudentia/netgent/prudentiaPrompts/gemini-netgent-test.py
+  PATH_TO_PRUDENTIA/prudentia/netgent/prudentiaPrompts/run_py_in_container.sh \
+  PATH_TO_PRUDENTIA/prudentia/netgent/prudentiaPrompts/gemini-netgent-test.py
 ```
 
 4. run a generated workflow
