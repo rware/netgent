@@ -1,0 +1,67 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://vimeo.com/1084537"
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The user has requested to terminate the task after navigating to the URL and waiting for the page to load. The page has loaded successfully."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "On the Video Player",
+    "description": "Play the video from the beginning for 600 seconds",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://vimeo.com/1084537"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.Button_module_button__61be5b9c.shared_module_focusable__29a0c6d5.Button_module_icon__61be5b9c.exclude-global-button-styles.Tooltip_module_tooltipContainer__b2bc4d16.PlayButton_module_playButton__d6312f47[type=\"button\"][aria-labelledby=\"play-button-tooltip\"]",
+          "x": 64.0,
+          "y": 837.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 600
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The task is to click play, wait for 600 seconds, and then terminate. The previous actions show that the play button was clicked and then a wait of 600 seconds was performed. Therefore, the next step is to terminate the task as per the instructions."
+        }
+      }
+    ],
+    "end_state": "Action Completed",
+    "executed": []
+  }
+]
