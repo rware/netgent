@@ -43,6 +43,11 @@ See individual subfolder `README.md` files for details on usage and implementati
 
 ## Getting Started
 
+### Installing dependencies
+```bash
+sudo apt install docker.io
+```
+
 ### API Keys Configuration
 
 NetGent requires API keys for LLM access when running in **Code Generation Mode**. Supported providers include Google Generative AI (Gemini) and Google Vertex AI.
