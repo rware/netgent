@@ -251,7 +251,7 @@ For more details on the capture system, see [docs/CAPTURE.md](docs/CAPTURE.md).
 # RAY NOTES
 1. Build the container
 ```bash
-docker build --platform linux/amd64 -t netgent .
+sudo docker build --platform linux/amd64 -t netgent .
 ```
 
 2. pull the key out of api_keys.json and pass it as an env var
