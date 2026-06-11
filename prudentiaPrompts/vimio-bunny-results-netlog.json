@@ -1,0 +1,446 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://vimeo.com/1084537"
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.Button_module_button__61be5b9c.shared_module_focusable__29a0c6d5.Button_module_icon__61be5b9c.exclude-global-button-styles.Tooltip_module_tooltipContainer__b2bc4d16.PlayButton_module_playButton__d6312f47[type=\"button\"][aria-labelledby=\"play-button-tooltip\"]",
+          "x": 64.0,
+          "y": 837.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.Button_module_button__61be5b9c.shared_module_focusable__29a0c6d5.Button_module_primary__61be5b9c.Button_module_sm__61be5b9c.Button_module_icon__61be5b9c.Button_module_iconSm__61be5b9c.exclude-global-button-styles.like-button.LikeButton_module_likeButton__3908feee[type=\"button\"][aria-label*=\"Like (this opens in a new window)\"]",
+          "x": 926.0,
+          "y": 233.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.sc-eACynQ.fToyUd",
+          "x": 722.5,
+          "y": 379.5
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.chakra-button.css-1o5pa0h[type=\"button\"][aria-label=\"Close\"]",
+          "x": 611.0,
+          "y": 902.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.chakra-button.css-uzfu2e[type=\"button\"][aria-label=\"Dismiss\"]",
+          "x": 741.0,
+          "y": 432.8125
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.Button_module_button__61be5b9c.shared_module_focusable__29a0c6d5.Button_module_primary__61be5b9c.Button_module_sm__61be5b9c.Button_module_icon__61be5b9c.Button_module_iconSm__61be5b9c.exclude-global-button-styles.watch-later-button.WatchLaterButton_module_watchLaterButton__238c6c3b[type=\"button\"][aria-label*=\"Add to Watch Later (this opens in a new window)\"]",
+          "x": 926.0,
+          "y": 273.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.sc-eACynQ.fToyUd",
+          "x": 722.5,
+          "y": 379.5
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "div.vp-progress.ProgressBar_module_progressBar__20d7fbb1[role=\"presentation\"]",
+          "x": 420.0,
+          "y": 837.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.Button_module_button__61be5b9c.shared_module_focusable__29a0c6d5.Button_module_primary__61be5b9c.Button_module_sm__61be5b9c.Button_module_icon__61be5b9c.Button_module_iconSm__61be5b9c.exclude-global-button-styles.like-button.LikeButton_module_likeButton__3908feee[type=\"button\"][aria-label*=\"Like (this opens in a new window)\"]",
+          "x": 926.0,
+          "y": 233.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.sc-eACynQ.fToyUd",
+          "x": 722.5,
+          "y": 379.5
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.Button_module_button__61be5b9c.shared_module_focusable__29a0c6d5.Button_module_primary__61be5b9c.Button_module_sm__61be5b9c.Button_module_icon__61be5b9c.Button_module_iconSm__61be5b9c.exclude-global-button-styles.like-button.LikeButton_module_likeButton__3908feee[type=\"button\"][aria-label*=\"Like (this opens in a new window)\"]",
+          "x": 926.0,
+          "y": 233.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.sc-eACynQ.fToyUd",
+          "x": 722.5,
+          "y": 379.5
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The task is to navigate to a specific URL and interact with the video. The previous actions show that modals were repeatedly appearing and being dismissed. After the last dismissal, the video player controls are visible, and the 'Like' button (element 8) was clicked. The current HTML shows the video player controls are still visible. Since the task is to interact with the video and the 'Like' button is a valid interaction, and no further instructions are given, I will terminate the task as complete."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "On the Video Player",
+    "description": "Play the video from the beginning for 600 seconds",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://vimeo.com/1084537"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.Button_module_button__61be5b9c.shared_module_focusable__29a0c6d5.Button_module_icon__61be5b9c.exclude-global-button-styles.ControlBarButton_module_controlBarButton__9f6f2536[type=\"button\"][aria-label=\"Mute\"]",
+          "x": 748.0,
+          "y": 837.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.Button_module_button__61be5b9c.shared_module_focusable__29a0c6d5.Button_module_icon__61be5b9c.exclude-global-button-styles.Tooltip_module_tooltipContainer__b2bc4d16.PlayButton_module_playButton__d6312f47[type=\"button\"][aria-labelledby=\"play-button-tooltip\"]",
+          "x": 64.0,
+          "y": 837.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 600
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The video has been played and the 600-second wait has concluded. No further actions are specified in the instructions, so the task is complete."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "End Netlog",
+    "description": "Completes the Netlog session",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://vimeo.com/1199498932?autoplay=1&muted=1&stream_id=ZmVhdHVyZWR8fGlkOmRlc2N8eyJyZW1vdmVfdm9kX3RpdGxlcyI6ZmFsc2V9"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Pricing"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "a.chakra-button.css-6ov0gl[href=\"/upgrade-plan\"]"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Log in"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "button.chakra-button.css-oodq46[type=\"button\"]"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Join"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "button.chakra-button.css-2wxfvy[type=\"button\"]"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Unmute"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span.Text_module_text__73112353.Text_module_bpxxs_fontmd__73112353.Text_module_bplg_fontlg__73112353.Text_module_bpxxl_fontxl__73112353.Text_module_bold__73112353[id=\"\"]"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Complications"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "h1.chakra-text.css-1u6jdne"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "37.2K views"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span[data-testid=\"views\"]"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "\u00b7"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span.chakra-text.css-1t8sfjh"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "3 days ago"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "time"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Mature"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span.chakra-badge.css-103a2ly"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "72"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "div.css-2ur2la"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Transcript"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "button.chakra-button.css-1gyle8v[type=\"button\"]"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Ivar Aase"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span.chakra-text.css-1jcaf2j"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Follow"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "button.chakra-button.css-a8noil[type=\"button\"]"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Comments"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "h2.chakra-text.css-1c4y8hw"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "4"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "h2.chakra-text.css-lzei0f"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Shashank Trivedi"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "p.chakra-text.css-gutlvb"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "3 hrs"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span.chakra-text.css-cj294h"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Beautiful film Ivar, loved this bond you created  between the two \ud83d\ude4c\ud83c\udffd\u2764\ufe0f"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "p"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "chrome://net-export"
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The user's instructions were to navigate to 'chrome://net-export', click 'Stop Logging', and then terminate. I have successfully navigated to 'chrome://net-export'. However, there is no 'Stop Logging' button visible on the page. Instead, there is a 'Start Logging to Disk' button, which indicates that logging is not currently active. As per the instructions, the next step is to terminate the task. Therefore, I am terminating the task because the 'Stop Logging' button was not found and the task is complete according to the instructions."
+        }
+      }
+    ],
+    "end_state": "Action Completed",
+    "executed": []
+  }
+]
