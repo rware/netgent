@@ -44,7 +44,7 @@ agent = NetGent(
 # shared project-level folder, one JSON file per workflow.
 #WORKFLOWS_DIR = PROJECT_ROOT / "netgent-workflows"
 #WORKFLOW_PATH = WORKFLOWS_DIR / "youtube-play.json"
-WORKFLOW_PATH = "/home/rware/prudentia/netgent/prudentiaPrompts/vimio-bunny-results.json"
+WORKFLOW_PATH = "/opt/netgent/prudentiaPrompts/vimio-bunny-results-netlog.json"
 
 prompt = [
         StatePrompt(
@@ -53,7 +53,6 @@ prompt = [
             triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
             actions=["[1] Press Ctrl+L (or Command+L on macOS) to focus the browser address bar", "[2] Type 'chrome://net-export' into the address bar", "[3] Press Enter to navigate to the site", "[4] Wait 5 seconds for the page to load", "[5] Click Start Logging to Disk", "[6] Save the file as vimioBunnyNetlog.json", "[7] Press control T (or comand T on mac os)"]
         ),
-
         StatePrompt(
             name="On Browser Home Page",
             description="Start the Process",
@@ -71,7 +70,7 @@ prompt = [
             name="End Netlog",
             description="Completes the Netlog session",
             triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
-            actions=["[1] Press Ctrl+L (or Command+L on macOS) to focus the browser address bar", "[2] Type 'chrome://net-export' into the address bar", "[3] Press Enter to navigate to the site", "[4] Wait 5 seconds for the page to load", "[5] Click Stop Logging to Disk", "[6] Wait 5 seconds to ensure file is saved"],
+            actions=["[1] Press Ctrl+L (or Command+L on macOS) to focus the browser address bar", "[2] Type 'chrome://net-export' into the address bar", "[3] Press Enter to navigate to the site", "[4] Wait 5 seconds for the page to load", "[5] Click Stop Logging", "[6] Wait 5 seconds to ensure file is saved"],
             end_state="Action Completed"
         ),
 
