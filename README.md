@@ -251,7 +251,7 @@ For more details on the capture system, see [docs/CAPTURE.md](docs/CAPTURE.md).
 # RAY NOTES
 1. Build the container
 ```bash
-docker build --platform linux/amd64 -t netgent .
+sudo docker build --platform linux/amd64 -t netgent .
 ```
 
 If you want to just go into a shell into the container
@@ -264,16 +264,17 @@ sudo docker run -it --entrypoint bash netgent
 KEY=$(python3 -c "import json;print(json.load(open('api_keys/api_keys.json'))['google_api_key'])")
 ```
 
-3. run a python file to generate workflows (make sure to update the WORKFLOW_PATH in the file you are running so it points to a valid output location)
+3. run a python file to generate workflows (make sure to update the WORKFLOW_PATH in the file you are running so it points to a valid output location, this should be run from the netgent folder)
 ```bash
 sudo docker run --rm -it \
   -p 8080:8080 \
   -e GOOGLE_API_KEY="$KEY" \
-  -v "$PWD/prudentiaPrompts:PATH_TO_PRUDENTIA/prudentia/netgent/prudentiaPrompts" \
+  -v "$PWD/prudentiaPrompts:$PWD/prudentiaPrompts" \
   --entrypoint bash \
   netgent \
-  PATH_TO_PRUDENTIA/prudentia/netgent/prudentiaPrompts/run_py_in_container.sh \
-  PATH_TO_PRUDENTIA/prudentia/netgent/prudentiaPrompts/gemini-netgent-test.py
+  $PWD/prudentiaPrompts/run_py_in_container.sh \
+  $PWD/prudentiaPrompts/vimio_bunny_prompts_netlog.py
+
 ```
 
 4. run a generated workflow
