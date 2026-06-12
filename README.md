@@ -312,6 +312,12 @@ docker run --rm \
 
 For more details on the capture system, see [docs/CAPTURE.md](docs/CAPTURE.md).
 
+# Netgent Prompt Writing Tips
+1. Prompts should not contain many actions (3 or fewer is best)
+2. The description and the name of the prompt matter and are used by the AI to determine what is should do
+3. The trigger also matters but in most cases can be left as “If it is on the current condition of the page! (Create trigger based on current page)”
+4. The AI has a tendency to ignore wait actions after the first for each prompt so put only on wait action in a prompt
+5. If the output log has more than 20 copies of the same or a very similar message you can be confident that the code you have written will not work and you may want to stop the generation. Alternatively you can let it finish and see what the error seems to be via the video. If viewing in the local host is functional this would be an excellent time to view what is going on and see if your script has encountered a problem that you did not code an answer for.
 
 
 # RAY NOTES
@@ -355,3 +361,4 @@ sudo docker run --rm -it \
  -e /home/agent/app/executable.json \
  -s
  ```
+
