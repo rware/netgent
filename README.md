@@ -254,6 +254,11 @@ For more details on the capture system, see [docs/CAPTURE.md](docs/CAPTURE.md).
 docker build --platform linux/amd64 -t netgent .
 ```
 
+If you want to just go into a shell into the container
+```bash
+sudo docker run -it --entrypoint bash netgent
+```
+
 2. pull the key out of api_keys.json and pass it as an env var
 ```bash
 KEY=$(python3 -c "import json;print(json.load(open('api_keys/api_keys.json'))['google_api_key'])")
