@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Go to link",
+    "description": "Naviage to the link provided",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://drive.google.com/file/d/1-NxvPDe2rnexjTCW5h1oV0LY_0nUMK37/view?usp=sharing"
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 30
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The task is completed as per the instructions. The URL was navigated to and the 30-second wait was executed. The next step is to terminate."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "Download the file from current page",
+    "description": "Downloads the drive file on the webpage",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://drive.google.com/file/d/1-NxvPDe2rnexjTCW5h1oV0LY_0nUMK37/view"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "USGovernmentBudgetFY2025.pdf"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span[aria-describedby=\"HADQ6c\"]"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.pYTkkf-Bz112c-LgbsSe.pYTkkf-Bz112c-LgbsSe-OWXEXe-SfQLQb-suEOdc.Tv4I0c.vbwSSe[aria-label=\"Download\"]",
+          "x": 234.484375,
+          "y": 289.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 30
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.pYTkkf-Bz112c-LgbsSe.pYTkkf-Bz112c-LgbsSe-OWXEXe-SfQLQb-suEOdc.Tv4I0c.vbwSSe[aria-label=\"Download\"]",
+          "x": 234.484375,
+          "y": 289.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 30
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The task is completed as per the instructions. The download icon was clicked and the 30-second wait was executed. The next step is to terminate."
+        }
+      }
+    ],
+    "end_state": "Action Completed",
+    "executed": []
+  }
+]
