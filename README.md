@@ -318,6 +318,7 @@ For more details on the capture system, see [docs/CAPTURE.md](docs/CAPTURE.md).
 3. The trigger also matters but in most cases can be left as “If it is on the current condition of the page! (Create trigger based on current page)”
 4. The AI has a tendency to ignore wait actions after the first for each prompt so put only on wait action in a prompt
 5. If the output log has more than 20 copies of the same or a very similar message you can be confident that the code you have written will not work and you may want to stop the generation. Alternatively you can let it finish and see what the error seems to be via the video. If viewing in the local host is functional this would be an excellent time to view what is going on and see if your script has encountered a problem that you did not code an answer for.
+6. Don't be affraid to manually edit the output jsons especially to remove checks. Often the validation checks are overly specific and the code will work better if you remove them.
 
 
 # RAY NOTES
