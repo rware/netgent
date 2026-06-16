@@ -14,7 +14,7 @@
       {
         "type": "navigate",
         "params": {
-          "url": "https://www.youtube.com/watch?v=jfKfPfyJRdk"
+          "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         }
       },
       {
@@ -36,9 +36,6 @@
   {
     "name": "Watching YouTube Video",
     "description": "On a YouTube watch page - start logging Stats for Nerds and keep sampling for the session",
-    "config": {
-      "continuous": true
-    },
     "checks": [
       {
         "type": "element",
@@ -63,7 +60,20 @@
         "params": {
           "seconds": 5
         }
+      }, 
+      {
+        "type": "stop_stats_logging",
+        "params":{}
+
+      },
+      
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The task is complete. The video has been played and waited for 30 seconds as per the instructions."
+        }
       }
+
     ],
     "end_state": "",
     "executed": []
