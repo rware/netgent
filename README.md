@@ -320,6 +320,8 @@ For more details on the capture system, see [docs/CAPTURE.md](docs/CAPTURE.md).
 5. If the output log has more than 20 copies of the same or a very similar message you can be confident that the code you have written will not work and you may want to stop the generation. Alternatively you can let it finish and see what the error seems to be via the video. If viewing in the local host is functional this would be an excellent time to view what is going on and see if your script has encountered a problem that you did not code an answer for.
 6. Don't be affraid to manually edit the output jsons especially to remove checks. Often the validation checks are overly specific and the code will work better if you remove them.
 
+# Netgent Tips
+1. Clear the docker cache every so often using sudo docker builder prune -a otherwise the cache will slowly become massive.
 
 # RAY NOTES
 1. Build the container
