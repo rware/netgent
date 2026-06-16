@@ -54,7 +54,7 @@
       {
         "type": "start_stats_logging",
         "params": {
-          "out_path": "youtube_stats.jsonl",
+          "out_path": "/capture/stats/youtube_stats.jsonl",
           "interval": 2.0
         }
       },

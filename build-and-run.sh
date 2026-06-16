@@ -3,7 +3,7 @@
 # build-and-run.sh — Build the NetGent Docker image and run the container.
 #
 # Defaults reproduce the "Code Execution Mode" example from the README:
-# it runs a pre-generated workflow (concrete NFA) in a sandboxed browser.
+# it runs a pre-generated workflow in a sandboxed browser.
 #
 # Usage:
 #   ./build-and-run.sh                       # build + run the default example
@@ -25,7 +25,7 @@ cd "$SCRIPT_DIR"
 IMAGE="${IMAGE:-netgent}"
 PLATFORM="${PLATFORM:-linux/amd64}"
 PORT="${PORT:-8080}"
-EXECUTABLE="${EXECUTABLE:-/home/magani1/qoe-measurement/netgent/prudentiaPrompts/youtube-bunny-results-manual.json}"
+EXECUTABLE="${EXECUTABLE:-/home/magani1/qoe-measurement/netgent/prudentiaPrompts/youtube-stats.json}"
 OUT_DIR="${OUT_DIR:-out}"
 OUT_FILE="${OUT_FILE:-/out/execution_result.json}"
 # Pass `docker run` extra flags via DOCKER_RUN_FLAGS (e.g. "--rm -d").
@@ -89,7 +89,7 @@ echo "    viewer   : http://localhost:$PORT (view-only, with -s)"
 exec $DOCKER run --platform="$PLATFORM" $DOCKER_RUN_FLAGS \
   -p "$PORT:8080" \
   -v "$EXECUTABLE_ABS:/executable_code.json:ro" \
-  -v "$PWD/$OUT_DIR:/out" \
+  -v /local/capture_qoe_measurement:/capture \
   "$IMAGE" \
   -e /executable_code.json \
   --user-data-dir /tmp/browser-cache \

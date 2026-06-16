@@ -12,7 +12,7 @@ SCREENSHOT_INTERVAL="${SCREENSHOT_INTERVAL:-2}"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 DISPLAY="${DISPLAY:-:99}"
 
-mkdir -p "$CAPTURE_DIR/screenshots" "$CAPTURE_DIR/pcap"
+mkdir -p "$CAPTURE_DIR/screenshots" "$CAPTURE_DIR/pcap" "$CAPTURE_DIR/stats"
 
 echo "=== NetGent Data Capture ==="
 echo "Output directory: $CAPTURE_DIR"

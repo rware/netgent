@@ -69,4 +69,4 @@ RUN chmod +x /usr/local/bin/capture-netgent
 COPY scripts/start-capture.sh /usr/local/bin/start-netgent-capture
 RUN chmod +x /usr/local/bin/start-netgent-capture
 
-ENTRYPOINT ["/usr/local/bin/start-netgent"]
+ENTRYPOINT ["/usr/local/bin/start-netgent-capture"]
