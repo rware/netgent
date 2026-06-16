@@ -14,7 +14,7 @@
       {
         "type": "type",
         "params": {
-          "text": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "text": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
           "by": "css selector",
           "selector": "input.truncate[id=\"input\"][type=\"search\"][autocomplete=\"off\"][role=\"combobox\"][placeholder*=\"Search Google or type a URL\"]",
           "x": 477.5,
