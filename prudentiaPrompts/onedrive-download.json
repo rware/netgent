@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Go to link",
+    "description": "Naviage to the link provided",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://1drv.ms/b/c/e36def71a46d26fc/IQAHiarNwetATY23bkwYUVXNATrQgzaL94PzPKwWgq3_ytA"
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 5
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The user explicitly instructed to terminate the task after waiting for 5 seconds. The navigation and wait actions have been completed. Therefore, the task is now complete."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "Download the file from current page",
+    "description": "Downloads the drive file on the webpage",
+    "checks": [
+      {
+        "type": "text",
+        "params": {
+          "text": "2025-usda-b...summary.pdf"
+        }
+      },
+      {
+        "type": "url",
+        "params": {
+          "url": "https://onedrive.live.com/?id=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments%2F2025%2Dusda%2Dbudget%2Dsummary%2Epdf&listurl=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments&ithint=file%2Cpdf&migratedtospo=true&parent=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy9lMzZkZWY3MWE0NmQyNmZjL0lRQUhpYXJOd2V0QVRZMjNia3dZVVZYTkFUclFnemFMOTRQelBLd1dncTNfeXRB&ga=1"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.ms-Button.ms-Button--commandBar.ms-CommandBarItem-link.root-72[type=\"button\"][role=\"menuitem\"][id=\"downloadCommand\"][aria-label*=\"Download this file to your device\"]",
+          "x": 54.0,
+          "y": 169.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 30
+        }
+      }
+   ],
+    "end_state": "",
+    "executed": []
+  }
+]
