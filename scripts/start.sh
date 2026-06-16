@@ -98,6 +98,10 @@ mkdir -p /run/sshd
 
 echo "EXECUTING CLI.PY"
 
-# Finally, launch the Python application:
+# Finally, launch the Python application.
+# Run from the mounted output dir (/out) so any workflow's relative output path
+# (e.g. a stats logger's youtube_stats.jsonl) lands on the host instead of being
+# lost inside the ephemeral container. Falls back to the app dir if /out is absent.
+cd /out 2>/dev/null || cd /home/agent/app
 #exec python3 /home/agent/app/netgent/src/netgent/cli.py "$@"
 exec python3 /home/agent/app/netgent/src/netgent/cli.py "$@"
