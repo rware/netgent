@@ -14,19 +14,13 @@
       {
         "type": "navigate",
         "params": {
-          "url": "https://1drv.ms/b/c/e36def71a46d26fc/IQAHiarNwetATY23bkwYUVXNATrQgzaL94PzPKwWgq3_ytA"
-        }
-      },
-      {
-        "type": "wait",
-        "params": {
-          "seconds": 5
+          "url": "https://1drv.ms/u/c/e36def71a46d26fc/IQDTCSodgk_sS57jP17UCYjJAXs8VOuBPV8jCa3V_5KvoxY?e=oRJqeQ"
         }
       },
       {
         "type": "terminate",
         "params": {
-          "reason": "The user explicitly instructed to terminate the task after waiting for 5 seconds. The navigation and wait actions have been completed. Therefore, the task is now complete."
+          "reason": "Navigation to the provided URL was successful and the task is complete as per instructions."
         }
       }
     ],
@@ -38,15 +32,22 @@
     "description": "Downloads the drive file on the webpage",
     "checks": [
       {
-        "type": "text",
+        "type": "url",
         "params": {
-          "text": "2025-usda-b...summary.pdf"
+          "url": "https://onedrive.live.com/?id=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments%2FprudentiaFourGigs%2Ebin&listurl=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments&e=oRJqeQ&migratedtospo=true&parent=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvYy9lMzZkZWY3MWE0NmQyNmZjL0lRRFRDU29kZ2tfc1M1N2pQMTdVQ1lqSkFYczhWT3VCUFY4akNhM1ZfNUt2b3hZP2U9b1JKcWVR&ga=1"
         }
       },
       {
-        "type": "url",
+        "type": "text",
         "params": {
-          "url": "https://onedrive.live.com/?id=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments%2F2025%2Dusda%2Dbudget%2Dsummary%2Epdf&listurl=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments&ithint=file%2Cpdf&migratedtospo=true&parent=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy9lMzZkZWY3MWE0NmQyNmZjL0lRQUhpYXJOd2V0QVRZMjNia3dZVVZYTkFUclFnemFMOTRQelBLd1dncTNfeXRB&ga=1"
+          "text": "prudentiaFourGigs.bin"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span.OneUpNonInteractiveCommandNewDesign_d7f8e809.OneUpCommandBarTitle.css-95"
         }
       }
     ],
@@ -55,18 +56,18 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.ms-Button.ms-Button--commandBar.ms-CommandBarItem-link.root-72[type=\"button\"][role=\"menuitem\"][id=\"downloadCommand\"][aria-label*=\"Download this file to your device\"]",
-          "x": 54.0,
-          "y": 169.0
+          "selector": "button.ms-Button.ms-Button--primary.OneUpCommandButtonPrimary_cc2ddd8c.root-72[type=\"button\"][aria-label=\"Download\"]",
+          "x": 496.4921875,
+          "y": 816.5
         }
       },
       {
         "type": "wait",
         "params": {
-          "seconds": 30
+          "seconds": 600
         }
       }
-   ],
+    ],
     "end_state": "",
     "executed": []
   }

@@ -1,11 +1,14 @@
+"""This example captures a youtube visit scripted with NetGent. It opens the platform, spotlights login placeholders, and documents the steps for browsing without signing in.
+
+#Some editing of the json may be needed
+
+Setup:
+    1. Get a Gemini API key from https://aistudio.google.com/app/apikey
+    2. Put it in a .env file (next to this script or in the project root) as:
+           GOOGLE_API_KEY="your-key-here"
+       or export it in your shell:
+           export GOOGLE_API_KEY="your-key-here"
 """
-This script visits a onedrive file and downloads it
-The file must be accessible to anybody on the internet in shared settings
-"""
-
-
-#This mostly works although the file ends up getting downloaded twice and the json needs to be slighly edited before it is fully functional
-
 import json
 import os
 from pathlib import Path
@@ -43,25 +46,22 @@ agent = NetGent(
 # shared project-level folder, one JSON file per workflow.
 #WORKFLOWS_DIR = PROJECT_ROOT / "netgent-workflows"
 #WORKFLOW_PATH = WORKFLOWS_DIR / "youtube-play.json"
-WORKFLOW_PATH = "/home/jkrauze1/netgent/prudentiaPrompts/onedrive-download.json"
-for i in range(100):
-    print("arcticFox")
+WORKFLOW_PATH = "/home/jkrauze1/netgent/prudentiaPrompts/youtube-bunny-results.json"
 
 prompt = [
         StatePrompt(
-            name="Go to link",
-            description="Naviage to the link provided",
+            name="On Browser Home Page",
+            description="Start the Process",
             triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
-            actions=["[1] Hit control L to select the search bar", "[2] Go to the url 'https://1drv.ms/u/c/e36def71a46d26fc/IQDTCSodgk_sS57jP17UCYjJAXs8VOuBPV8jCa3V_5KvoxY?e=oRJqeQ' DO NOT GO TO ANY OTHER URL", "[3] Wait 5 seconds for the webpage to load"],
+            actions=["[1] Hit control L to focus on the search bar", "[2] Go to the url 'https://www.youtube.com/watch?v=aqz-KE-bpKQ'", "[3] Wait 5 seconds for the page to load"]
         ),
         StatePrompt(
-            name="Download the file from current page",
-            description="Downloads the drive file on the webpage",
-            triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
-            actions=["[1] Click the Download Icon in the center of the page to download the pdf", "[2] Wait 30 seconds for the download to begin"]
-            
+            name="On the Video Player",
+            description="Play the video from the beginning for 30 seconds",
+            triggers=["Only use URL as a Trigger"],
+            actions=["[1] Click the Play button to start the video from the beginning", "[2] Wait 30 seconds while the video plays"],
+            end_state="Action Completed"
         ),
-
     ]
 
 

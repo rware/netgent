@@ -50,13 +50,13 @@ prompt = [
             name="Go to link",
             description="Naviage to the link provided",
             triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
-            actions=["[1] Hit control L to select the search bar", "[2] Go to the url 'https://mega.nz/file/YqV1GQyL#xJuYkhfZpU57i1kmR--zu4_9JlkXvEWjn1LDZsXOyvE'", "[3] Wait 30 seconds"],
+            actions=["[1] Hit control L to select the search bar", "[2] Go to the url 'https://mega.nz/file/1q81QCrK#4JOB85MSixkqULqEudROCMmtSB8rFbvwutOs4O-em8Q'", "[3] Wait 30 seconds"],
         ),
         StatePrompt(
             name="Download the file from current page",
             description="Click on a specific icon",
             triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
-            actions=["[1] Click the icon between the 'more actions' icon and the 'save to mega acount' icon", "[2] Wait 30 seconds"],
+            actions=["[1] Click on the download icon", "[2] Wait 600 seconds"],
             end_state="Action Completed"
         ),
     ]

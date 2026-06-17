@@ -14,7 +14,7 @@
       {
         "type": "navigate",
         "params": {
-          "url": "https://mega.nz/file/YqV1GQyL#xJuYkhfZpU57i1kmR--zu4_9JlkXvEWjn1LDZsXOyvE"
+          "url": "https://mega.nz/file/1q81QCrK#4JOB85MSixkqULqEudROCMmtSB8rFbvwutOs4O-em8Q"
         }
       },
       {
@@ -24,45 +24,9 @@
         }
       },
       {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.mega-component.nav-elem.normal.button",
-          "x": 813.109375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "li.mega-component.nav-elem.normal.active[title=\"English\"]",
-          "x": 387.5,
-          "y": 555.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "li.mega-component.nav-elem.normal.active[title=\"English\"]",
-          "x": 387.5,
-          "y": 555.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.mega-component.slim.font-600.primary.nav-elem.normal.button",
-          "x": 873.6640625,
-          "y": 793.0
-        }
-      },
-      {
         "type": "terminate",
         "params": {
-          "reason": "The download process has been initiated and completed as per the instructions."
+          "reason": "The task is completed as per the instructions. The page has been navigated to, and the required wait time has passed. The next step is to terminate the action."
         }
       }
     ],
@@ -76,7 +40,7 @@
       {
         "type": "url",
         "params": {
-          "url": "https://mega.nz/file/YqV1GQyL#xJuYkhfZpU57i1kmR--zu4_9JlkXvEWjn1LDZsXOyvE"
+          "url": "https://mega.nz/file/1q81QCrK#4JOB85MSixkqULqEudROCMmtSB8rFbvwutOs4O-em8Q"
         }
       },
       {
@@ -98,66 +62,21 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.mega-component.text-icon.secondary.icon-loading.icon-replace.nav-elem.icon-only.simpletip.button",
-          "x": 651.21875,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.mega-component.text-icon.secondary.visible-active.nav-elem.icon-only.simpletip.button",
-          "x": 611.21875,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.mega-component.context-button.text-icon.nav-elem.full-width.button",
-          "x": 722.21875,
-          "y": 302.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.mega-component.slim.nav-elem.normal.button",
-          "x": 715.640625,
-          "y": 763.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.mega-component.slim.nav-elem.normal.button",
-          "x": 715.640625,
-          "y": 763.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.mega-component.slim.nav-elem.normal.button",
-          "x": 715.640625,
-          "y": 763.0
+          "selector": "button.mega-component.lg-size.secondary.icon-loading.visible-txt.nav-elem.normal.button",
+          "x": 496.5,
+          "y": 809.5
         }
       },
       {
         "type": "wait",
         "params": {
-          "seconds": 30
+          "seconds": 600
         }
       },
       {
         "type": "terminate",
         "params": {
-          "reason": "The user's instructions have been followed sequentially. The last action was a wait for 30 seconds, and the previous actions indicate that the intended download/sharing process has been initiated and completed as per the user's request. Therefore, the task is terminated."
+          "reason": "The user's instruction was to click on the download icon, wait 600 seconds and then terminate. The previous action trajectory shows that the download icon was clicked, and 600 seconds have elapsed. Therefore, the task is complete."
         }
       }
     ],
