@@ -40,15 +40,6 @@
     ],
     "actions": [
       {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "div.ytp-progress-bar[role=\"slider\"][aria-label*=\"Seek slider\"]",
-          "x": 489.0,
-          "y": 669.0625
-        }
-      },
-      {
         "type": "wait",
         "params": {
           "seconds": 600
