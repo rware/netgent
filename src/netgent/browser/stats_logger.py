@@ -22,6 +22,7 @@ against a loop that mostly sleeps makes collisions rare in practice.
 
 import json
 import logging
+import os
 import threading
 import time
 
@@ -178,6 +179,11 @@ class VideoStatsLogger:
         return sample
 
     def _run(self):
+        # Ensure the output directory exists (out_path may point at e.g.
+        # /capture/stats/...); create it so the open() below can't fail.
+        out_dir = os.path.dirname(self.out_path)
+        if out_dir:
+            os.makedirs(out_dir, exist_ok=True)
         # Line-buffered append so each sample is flushed to disk immediately.
         with open(self.out_path, "a", buffering=1) as f:
             while not self._stop_event.is_set():
