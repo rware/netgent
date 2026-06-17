@@ -27,7 +27,7 @@ PLATFORM="${PLATFORM:-linux/amd64}"
 PORT="${PORT:-8080}"
 EXECUTABLE="${EXECUTABLE:-/home/magani1/qoe-measurement/netgent/examples/web_browsing/youtube/results/youtube_stats_result.json}"
 OUT_DIR="${OUT_DIR:-out}"
-OUT_FILE="${OUT_FILE:-/out/execution_result.json}"
+OUT_FILE="${OUT_FILE:-/capture/execution_result.json}"
 # Pass `docker run` extra flags via DOCKER_RUN_FLAGS (e.g. "--rm -d").
 DOCKER_RUN_FLAGS="${DOCKER_RUN_FLAGS:---rm}"
 # Use sudo if the current user can't talk to the Docker daemon.
@@ -97,5 +97,5 @@ $DOCKER run --platform="$PLATFORM" $DOCKER_RUN_FLAGS \
   -s
 
 
-TIMESTAMP="date +%s"
-mv /local/capture_measurement/stats/youtube_stats.jsonl /local/capture_measurement/stats/youtube_stats-$TIMESTAMP.jsonl
+TIMESTAMP=(date +%s)
+sudo mv  /local/capture_qoe_measurement/stats/youtube_stats.jsonl  /local/capture_qoe_measurement/stats/youtube_stats-$TIMESTAMP.jsonl
