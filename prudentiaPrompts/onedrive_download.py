@@ -52,13 +52,13 @@ prompt = [
             name="Go to link",
             description="Naviage to the link provided",
             triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
-            actions=["[1] Hit control L to select the search bar", "[2] Go to the url 'https://1drv.ms/b/c/e36def71a46d26fc/IQAHiarNwetATY23bkwYUVXNATrQgzaL94PzPKwWgq3_ytA' DO NOT GO TO ANY OTHER URL", "[3] Wait 5 seconds for the webpage to load"],
+            actions=["[1] Hit control L to select the search bar", "[2] Go to the url 'https://1drv.ms/u/c/e36def71a46d26fc/IQDTCSodgk_sS57jP17UCYjJAXs8VOuBPV8jCa3V_5KvoxY?e=oRJqeQ' DO NOT GO TO ANY OTHER URL", "[3] Wait 5 seconds for the webpage to load"],
         ),
         StatePrompt(
             name="Download the file from current page",
             description="Downloads the drive file on the webpage",
             triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
-            actions=["[1] Click the Download Icon in the upper left corner of the page to download the pdf", "[2] Wait 30 seconds for the download to begin"]
+            actions=["[1] Click the Download Icon in the center of the page to download the pdf", "[2] Wait 30 seconds for the download to begin"]
             
         ),
 
