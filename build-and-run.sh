@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash 
 #
 # build-and-run.sh — Build the NetGent Docker image and run the container.
 #
@@ -9,30 +9,35 @@
 #   ./build-and-run.sh                       # build + run the default example
 #   ./build-and-run.sh --no-build            # skip the build, just run
 #   ./build-and-run.sh --build-only          # build the image and exit
-#   EXECUTABLE=path/to/foo.json ./build-and-run.sh
+#   EXECUTABLE=path/to/foo.json ./build-and-run.sh #if you wish t to run a different workflow, set EXECUTABLE to point at it (relative or absolute)
 #
 # Override behaviour via environment variables (see DEFAULTS below).
 set -euo pipefail
 
-# Resolve this script's location, then run from it (the Docker build context).
-# Capture an absolute path before cd-ing so "$0"-relative reads (e.g. --help)
-# still work when invoked as ./netgent/build-and-run.sh from another directory.
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"  #these are the environment variables that 
-SCRIPT_PATH="$SCRIPT_DIR/$(basename "${BASH_SOURCE[0]}")"
-cd "$SCRIPT_DIR"
+echo " ----------------------------------------------" 
+echo "   DOING SOMETHING WITH build-and-run.sh" 
+echo " ----------------------------------------------"
 
-# --- Defaults (override by exporting before invoking) ------------------------
+
+# Path to this script's directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"  #change directory to the script's directory, and capture that absolute path in SCRIPT_DIR
+SCRIPT_PATH="$SCRIPT_DIR/$(basename "${BASH_SOURCE[0]}")"
+cd "$SCRIPT_DIR" 
+
+
+# Default values for environment variables (can be overridden by user)
 IMAGE="${IMAGE:-netgent}"
 PLATFORM="${PLATFORM:-linux/amd64}"
 PORT="${PORT:-8080}"
-EXECUTABLE="${EXECUTABLE:-/home/magani1/qoe-measurement/netgent/examples/web_browsing/youtube/results/youtube_stats_result.json}"
-OUT_DIR="${OUT_DIR:-out}"
-OUT_FILE="${OUT_FILE:-/out/execution_result-"date +%s".json}"
-# Pass `docker run` extra flags via DOCKER_RUN_FLAGS (e.g. "--rm -d").
-DOCKER_RUN_FLAGS="${DOCKER_RUN_FLAGS:---rm}"
-# Use sudo if the current user can't talk to the Docker daemon.
-DOCKER="${DOCKER:-docker}"
+EXECUTABLE="${EXECUTABLE:-/home/magani1/qoe-measurement/netgent/examples/web_browsing/youtube/results/youtube_stats_result.json}" #Hardcoded path
+OUT_DIR="${OUT_DIR:-/local/capture_qoe_measurement/stats}"
+OUT_FILE="${OUT_FILE:-/capture/execution_result-$(date +%s).json}"
+DOCKER_RUN_FLAGS="${DOCKER_RUN_FLAGS:---rm}" # Pass `docker run` extra flags via DOCKER_RUN_FLAGS (e.g. "--rm -d").
+DOCKER="${DOCKER:-docker}" # Use sudo if the current user can't talk to the Docker daemon.
 
+
+# Set permissions for the output directory so the container can write to it, and user can read the results after container stops
+chown -R $USER:$USER "$OUT_DIR" # no need for sudo here since we added the current user to the docker group
 # --- Flags -------------------------------------------------------------------
 DO_BUILD=1
 DO_RUN=1
@@ -49,16 +54,16 @@ for arg in "$@"; do
   esac
 done
 
-# Fall back to sudo if Docker isn't reachable without it.
-if ! $DOCKER info >/dev/null 2>&1; then
-  if command -v sudo >/dev/null 2>&1 && sudo $DOCKER info >/dev/null 2>&1; then
-    echo "==> Docker requires elevated privileges; using sudo."
-    DOCKER="sudo $DOCKER"
-  else
-    echo "ERROR: cannot reach the Docker daemon. Is Docker installed and running?" >&2
-    exit 1
-  fi
-fi
+# # Fall back to sudo if Docker isn't reachable without it.
+# if ! $DOCKER info >/dev/null 2>&1; then
+#   if command -v sudo >/dev/null 2>&1 && sudo $DOCKER info >/dev/null 2>&1; then
+#     echo "==> Docker requires elevated privileges; using sudo."
+#     DOCKER="sudo $DOCKER"
+#   else
+#     echo "ERROR: cannot reach the Docker daemon. Is Docker installed and running?" >&2
+#     exit 1
+#   fi
+# fi
 
 # --- Build -------------------------------------------------------------------
 if [ "$DO_BUILD" -eq 1 ]; then
@@ -86,7 +91,7 @@ echo "    workflow : $EXECUTABLE_ABS"
 echo "    output   : $OUT_DIR ($OUT_FILE inside container)"
 echo "    viewer   : http://localhost:$PORT (view-only, with -s)"
 
-exec $DOCKER run --platform="$PLATFORM" $DOCKER_RUN_FLAGS \
+$DOCKER run --platform="$PLATFORM" $DOCKER_RUN_FLAGS \
   -p "$PORT:8080" \
   -v "$EXECUTABLE_ABS:/executable_code.json:ro" \
   -v /local/capture_qoe_measurement:/capture \
@@ -97,5 +102,7 @@ exec $DOCKER run --platform="$PLATFORM" $DOCKER_RUN_FLAGS \
   -s
 
 
-TIMESTAMP="date +%s"
-mv /local/capture_measurement/stats/youtube_stats.jsonl /local/capture_measurement/stats/youtube_stats-$TIMESTAMP.jsonl 
+#as soon as the container is stopped, move the stats file to a new file with timestamp
+# you could add
+TIMESTAMP="$(date +%s)"
+sudo mv /local/capture_qoe_measurement/stats/youtube_stats.jsonl /local/capture_qoe_measurement/stats/youtube_stats-$TIMESTAMP.jsonl
