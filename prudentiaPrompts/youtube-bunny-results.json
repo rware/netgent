@@ -1,0 +1,67 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The YouTube video has loaded successfully. As per the instructions, the next step is to terminate the task."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "On the Video Player",
+    "description": "Play the video from the beginning for 30 seconds",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "div.ytp-progress-bar[role=\"slider\"][aria-label*=\"Seek slider\"]",
+          "x": 489.0,
+          "y": 669.0625
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 600
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The video has been played from the beginning and the 600-second wait is complete. Terminating the task as per instructions."
+        }
+      }
+    ],
+    "end_state": "Action Completed",
+    "executed": []
+  }
+]
