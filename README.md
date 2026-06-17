@@ -220,6 +220,7 @@ Each line of the resulting JSONL file looks like:
 The generated `*_stats.jsonl` logs are git-ignored.
 
 
+
 ## Running a YouTube Experiment with Data Capture
 
 This walkthrough runs the YouTube video streaming workflow and captures all network and visual evidence using 4 methods: packet capture (tcpdump), Chrome network logs, screenshots, and screen recording.
@@ -365,3 +366,60 @@ sudo docker run --rm -it \
  -s
  ```
 
+
+## Running Multiple Applications Concurrently
+
+NetGent can run **several application workflows at the same time** in a single invocation — for example, watching YouTube while also streaming Twitch and running a `wget` download. This is separate from generating workflows with AI; it is purely about *executing* one or more pre-built workflows in parallel.
+
+### How it works
+
+You pass **one or more workflow files**, and each is classified by its extension:
+
+| Extension | Type | What runs |
+|-----------|------|-----------|
+| `*.json` | NetGent executable workflow | A full browser session. Each one gets its **own virtual display, its own Chrome profile, and (with `-s`) its own noVNC port**, so their mouse/keyboard inputs never collide. |
+| `*.sh` | Bash workflow | An arbitrary shell command (e.g. `wget`, `ping`, `curl`). No browser/display is used. |
+
+Key behaviors:
+
+- **Isolation:** every browser workflow runs on its own display (`:99`, `:100`, …) with its own Chrome profile, so concurrent workflows don't interfere with each other. A failure in one workflow does not stop the others.
+- **Live viewing:** with `-s`, each browser workflow is assigned its own noVNC port, sequentially from `8080` (1st browser → `:8080`, 2nd → `:8081`, …). Open one browser tab per workflow to watch them live, exactly like the single-workflow view. Map each port you want to see.
+- **Output:** per-workflow results and logs are written under `out/<workflow-name>/` (e.g. `out/youtube/youtube_result.json`, `out/youtube/youtube.log`). Bash workflows also run in their own `out/<name>/` directory, so relative output files never clobber each other.
+- **Completion:** the run finishes once **all** workflows have completed.
+- Single-workflow usage (`-e` / `-g`) is unchanged and fully backward compatible.
+
+Two ready-to-run bash workflow examples are provided in [`examples/bash_workflows/`](examples/bash_workflows/): `wget-download.sh` and `ping.sh`.
+
+> **Resource note:** each browser workflow starts its own Chrome + virtual display, so memory/CPU usage grows with the number of concurrent browser workflows.
+
+### Docker
+
+Pass the workflow files as the container's arguments and map one host port per browser workflow you want to watch:
+
+```bash
+sudo docker run --platform=linux/amd64 --rm \
+  -p 8080:8080 -p 8081:8081 \
+ --cap-add=NET_RAW \
+  -v "$PWD/capture_output:/capture" \
+  -v "$PWD/examples/web_browsing/youtube/results/youtube_stats_result.json:/youtube.json:ro" \
+  -v "$PWD/examples/web_browsing/twitch-watch/results/twitch-stats_result.json:/twitch.json:ro" \
+  -v "$PWD/examples/bash_workflows/wget-download.sh:/wget.sh:ro" \
+  -v "$PWD/out:/out" \
+  netgent \
+  /youtube.json /twitch.json /wget.sh -s
+```
+
+- `youtube` (1st browser workflow) → watch at http://localhost:8080
+- `twitch` (2nd browser workflow) → watch at http://localhost:8081
+- `wget` (bash workflow) → no screen; output and logs in `out/wget/`
+- Results/logs for each are written under the mounted `out/` directory.
+
+### CLI
+
+Inside the container the same orchestrator is available on `PATH` as `start-netgent`, accepting the same arguments. This is useful when you already have a running container:
+
+```bash
+start-netgent /youtube.json /twitch.json /wget.sh -s
+```
+
+> The multi-workflow orchestrator manages the virtual displays (Xvfb), VNC, and noVNC servers, which are only present inside the provided Docker image. Run it via the container (as the entrypoint above) or from a shell inside the container, rather than directly on a host without an X server.

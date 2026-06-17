@@ -17,7 +17,7 @@ set -euo pipefail
 # Resolve this script's location, then run from it (the Docker build context).
 # Capture an absolute path before cd-ing so "$0"-relative reads (e.g. --help)
 # still work when invoked as ./netgent/build-and-run.sh from another directory.
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"  #these are the environment variables that 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"  #these are the environment variables that
 SCRIPT_PATH="$SCRIPT_DIR/$(basename "${BASH_SOURCE[0]}")"
 cd "$SCRIPT_DIR"
 
@@ -27,7 +27,7 @@ PLATFORM="${PLATFORM:-linux/amd64}"
 PORT="${PORT:-8080}"
 EXECUTABLE="${EXECUTABLE:-/home/magani1/qoe-measurement/netgent/examples/web_browsing/youtube/results/youtube_stats_result.json}"
 OUT_DIR="${OUT_DIR:-out}"
-OUT_FILE="${OUT_FILE:-/out/execution_result-"date +%s".json}"
+OUT_FILE="${OUT_FILE:-/out/execution_result.json}"
 # Pass `docker run` extra flags via DOCKER_RUN_FLAGS (e.g. "--rm -d").
 DOCKER_RUN_FLAGS="${DOCKER_RUN_FLAGS:---rm}"
 # Use sudo if the current user can't talk to the Docker daemon.
@@ -86,7 +86,7 @@ echo "    workflow : $EXECUTABLE_ABS"
 echo "    output   : $OUT_DIR ($OUT_FILE inside container)"
 echo "    viewer   : http://localhost:$PORT (view-only, with -s)"
 
-exec $DOCKER run --platform="$PLATFORM" $DOCKER_RUN_FLAGS \
+$DOCKER run --platform="$PLATFORM" $DOCKER_RUN_FLAGS \
   -p "$PORT:8080" \
   -v "$EXECUTABLE_ABS:/executable_code.json:ro" \
   -v /local/capture_qoe_measurement:/capture \
@@ -98,4 +98,4 @@ exec $DOCKER run --platform="$PLATFORM" $DOCKER_RUN_FLAGS \
 
 
 TIMESTAMP="date +%s"
-mv /local/capture_measurement/stats/youtube_stats.jsonl /local/capture_measurement/stats/youtube_stats-$TIMESTAMP.jsonl 
+mv /local/capture_measurement/stats/youtube_stats.jsonl /local/capture_measurement/stats/youtube_stats-$TIMESTAMP.jsonl
