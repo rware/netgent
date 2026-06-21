@@ -37,7 +37,7 @@ DOCKER="${DOCKER:-docker}" # Use sudo if the current user can't talk to the Dock
 
 
 # Set permissions for the output directory so the container can write to it, and user can read the results after container stops
-chown -R $USER:$USER "$OUT_DIR" # no need for sudo here since we added the current user to the docker group
+sudo chown -R $USER:$USER "$OUT_DIR" # no need for sudo here since we added the current user to the docker group
 # --- Flags -------------------------------------------------------------------
 DO_BUILD=1
 DO_RUN=1
