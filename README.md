@@ -349,7 +349,7 @@ sudo docker run --rm -it \
   --entrypoint bash \
   netgent \
   $PWD/prudentiaPrompts/run_py_in_container.sh \
-  $PWD/prudentiaPrompts/vimio_bunny_prompts_netlog.py
+  $PWD/prudentiaPrompts/vimio_bunny_prompts.py > vimioBunnyPrompts.log
 
 ```
 
