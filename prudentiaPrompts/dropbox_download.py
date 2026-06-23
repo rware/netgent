@@ -52,13 +52,13 @@ prompt = [
             name="Go to link",
             description="Naviage to the link provided",
             triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
-            actions=["[1] Hit control L to select the search bar", "[2] Go to the url 'https://www.dropbox.com/scl/fi/4tbhkb2en89ymrimjmapv/PLAW-119publ75.pdf?rlkey=5hheood8wsbyaabew8fk1b1wm&st=kbqz4syp&dl=0' DO NOT GO TO ANY OTHER URL", "[3] Wait 5 seconds for the webpage to load"],
+            actions=["[1] Hit control L to select the search bar", "[2] Go to the url 'https://www.dropbox.com/scl/fi/epa488sahxpk605joezl7/prudentiaTenGigs.bin?rlkey=u2w4myubqsroob80pdx3figia&st=zk2788ev&dl=0' DO NOT GO TO ANY OTHER URL", "[3] Wait 5 seconds for the webpage to load"],
         ),
         StatePrompt(
-            name="Download the file from current page",
-            description="Downloads the drive file on the webpage",
+            name="Attempt Download",
+            description="Attempts to download the file from the current page",
             triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
-            actions=["[1] Click accept all for the cookies prompt", "[2] Click the Download Icon in the upper right corner of the page to download the pdf", "[3] Wait 5 seconds for the download to begin"]        ),
+            actions=["[1] Click the Download Icon in the upper right corner of the page", "[2] Wait 5 seconds for the download to begin"]        ),
         StatePrompt(
             name="Make sure the file is downloaded",
             description="If their was a pop up causing an issue ensures the file is downloaded anyways",
@@ -66,7 +66,6 @@ prompt = [
             actions=["[1] If the file is not yet downloaded click close icon", "[2] Click the Download Icon in the upper right corner of the page to download the pdf", "[3] Wait 30 seconds"],
             end_state="Action Completed"
         ),
-
     ]
 
 
