@@ -14,49 +14,14 @@
       {
         "type": "navigate",
         "params": {
-          "url": "https://www.dropbox.com/scl/fi/4tbhkb2en89ymrimjmapv/PLAW-119publ75.pdf?rlkey=5hheood8wsbyaabew8fk1b1wm&st=kbqz4syp&dl=0"
+          "url": "https://www.dropbox.com/scl/fi/epa488sahxpk605joezl7/prudentiaTenGigs.bin?rlkey=u2w4myubqsroob80pdx3figia&st=zk2788ev&dl=0"
         }
       },
-      {
-        "type": "terminate",
-        "params": {
-          "reason": "The page has loaded successfully and displays the PDF document as intended. The task is complete."
-        }
-      }
-    ],
-    "end_state": "",
-    "executed": []
-  },
-  {
-    "name": "Download the file from current page",
-    "description": "Downloads the drive file on the webpage",
-    "checks": [
-      {
-        "type": "url",
-        "params": {
-          "url": "https://www.dropbox.com/scl/fi/4tbhkb2en89ymrimjmapv/PLAW-119publ75.pdf?rlkey=5hheood8wsbyaabew8fk1b1wm&st=kbqz4syp&e=1&dl=0"
-        }
-      },
-      {
-        "type": "text",
-        "params": {
-          "text": "PLAW-119publ75"
-        }
-      },
-      {
-        "type": "element",
-        "params": {
-          "by": "css selector",
-          "selector": "span.dig-Text.dig-Text--variant-paragraph.dig-Text--size-large.dig-Text--color-standard.dig-Text--isBold.dig-18ip5q9c_24-2-2.dig-18ip5q90_24-2-2.dig-18ip5q9m_24-2-2.dig-18ip5q9r_24-2-2.dig-18ip5q9s_24-2-2.dig-18ip5q9k_24-2-2.dig-18ip5q9v_24-2-2.dig-18ip5q9d_24-2-2._file-name__font-change_zlmsf_53"
-        }
-      }
-    ],
-    "actions": [
       {
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--primary.dig-Button--large.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6o_24-2-2.dig-1t3llsue_24-2-2.dig-u1jsn6h_24-2-2.dig-u1jsn61i_24-2-2.dig-1t3llsug_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn61s_24-2-2[id=\"accept_all_cookies_button\"][data-testid=\"accept_all_cookies_button\"]",
+          "selector": "button.dig-Button.dig-Button--primary.dig-Button--large.dig-Button-tone--neutral.dig-u1jsn63_24-3-0.dig-u1jsn6o_24-3-0.dig-1t3llsue_24-3-0.dig-u1jsn6h_24-3-0.dig-u1jsn61i_24-3-0.dig-1t3llsug_24-3-0.dig-u1jsn61k_24-3-0.dig-u1jsn61r_24-3-0.dig-u1jsn61s_24-3-0[id=\"accept_all_cookies_button\"][data-testid=\"accept_all_cookies_button\"]",
           "x": 575.71875,
           "y": 1026.0
         }
@@ -65,30 +30,75 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--large._icon-button_7x8uw_1.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0c_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Download\"]",
-          "x": 685.484375,
-          "y": 249.0
+          "selector": "button.dig-Button.dig-Button--outline.dig-Button--standard.dig-Button--medium.dig-Button--hasCollapsedMargins.dig-Button-tone--neutral.dig-u1jsn63_24-3-0.dig-u1jsn6r_24-3-0.dig-1t3llsud_24-3-0.dig-u1jsn6c_24-3-0.dig-u1jsn6h_24-3-0.dig-u1jsn61i_24-3-0.dig-1t3llsuk_24-3-0.dig-u1jsn61k_24-3-0.dig-u1jsn61r_24-3-0.dig-u1jsn61y_24-3-0.dig-SplitButton-button.dig-xv9r7l7_24-3-0",
+          "x": 480.984375,
+          "y": 839.625
         }
       },
       {
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--transparent.dig-Button--standard.dig-Button--medium.dig-Button--hasUnderline.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6t_24-2-2.dig-1t3llsud_24-2-2.dig-u1jsn610_24-2-2.dig-u1jsn61i_24-2-2.dig-u1jsn61p_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn620_24-2-2",
+          "selector": "button.dig-Button.dig-Button--transparent.dig-Button--standard.dig-Button--medium.dig-Button--hasUnderline.dig-Button-tone--neutral.dig-u1jsn63_24-3-0.dig-u1jsn6t_24-3-0.dig-1t3llsud_24-3-0.dig-u1jsn610_24-3-0.dig-u1jsn61i_24-3-0.dig-u1jsn61p_24-3-0.dig-u1jsn61k_24-3-0.dig-u1jsn61r_24-3-0.dig-u1jsn620_24-3-0",
           "x": 500.4921875,
-          "y": 922.1015625
+          "y": 894.1015625
         }
       },
       {
         "type": "wait",
         "params": {
-          "seconds": 5
+          "seconds": 600
+        }
+      },
+
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The user has successfully navigated to the provided URL and has initiated the download process by clicking the relevant buttons. The page now indicates that the download should start soon. Therefore, the task is complete."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "Attempt Download",
+    "description": "Attempts to download the file from the current page",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://www.dropbox.com/scl/fi/epa488sahxpk605joezl7/prudentiaTenGigs.bin?rlkey=u2w4myubqsroob80pdx3figia&st=zk2788ev&e=1&dl=0"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "prudentiaTenGigs"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span.dig-Text.dig-Text--variant-paragraph.dig-Text--size-large.dig-Text--color-standard.dig-Text--isBold.dig-18ip5q9c_24-3-0.dig-18ip5q90_24-3-0.dig-18ip5q9m_24-3-0.dig-18ip5q9r_24-3-0.dig-18ip5q9s_24-3-0.dig-18ip5q9k_24-3-0.dig-18ip5q9v_24-3-0.dig-18ip5q9d_24-3-0._file-name__font-change_zlmsf_53"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--large._icon-button_7x8uw_1.dig-q8c3i02_24-3-0.dig-q8c3i01_24-3-0.dig-q8c3i08_24-3-0.dig-q8c3i0c_24-3-0.dig-q8c3i0g_24-3-0.dig-q8c3i0l_24-3-0.dig-q8c3i0r_24-3-0[aria-label=\"Download\"]",
+          "x": 685.484375,
+          "y": 193.0
         }
       },
       {
         "type": "terminate",
         "params": {
-          "reason": "The task is complete. The user's instructions were to accept cookies, click the download icon, and wait 5 seconds for the download to begin. All these steps have been executed in the previous turns. The current HTML shows element 13 'Or continue with download only' which was clicked in the previous turn, and the subsequent wait action has also been executed. Therefore, the task is finished."
+          "reason": "The download has been initiated and the page indicates that the download should start soon. The task is complete."
         }
       }
     ],
@@ -100,9 +110,29 @@
     "description": "If their was a pop up causing an issue ensures the file is downloaded anyways",
     "checks": [
       {
-        "type": "url",
+        "type": "text",
         "params": {
-          "url": "https://www.dropbox.com/scl/fi/4tbhkb2en89ymrimjmapv/PLAW-119publ75.pdf?rlkey=5hheood8wsbyaabew8fk1b1wm&st=kbqz4syp&e=1&dl=0"
+          "text": "Your download should start soon. If it doesn\u2019t, go back to try again."
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Your file is downloading"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span.dig-Text.dig-Text--variant-paragraph.dig-Text--size-medium.dig-Text--color-inherit.dig-Text--size-standard.dig-18ip5q9c_24-3-0.dig-18ip5q90_24-3-0.dig-18ip5q9n_24-3-0.dig-18ip5q9r_24-3-0.dig-18ip5q9k_24-3-0.dig-18ip5q9v_24-3-0.dig-18ip5q9i_24-3-0.dig-Snackbar-message.dig-7zgrcy6_24-3-0"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "h2.dig-Title.dig-Title--size-medium.dig-Title--color-standard.dig-Title--size-standard.dig-18ip5q91_24-3-0.dig-18ip5q90_24-3-0.dig-18ip5q99_24-3-0.dig-18ip5q92_24-3-0"
         }
       }
     ],
@@ -111,234 +141,42 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--standard.dig-IconButton--medium.dig-Modal-close-btn.dig-1fl7soku_24-2-2.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0a_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Cancel\"][data-testid=\"digModalCloseButton\"]",
-          "x": 679.5,
-          "y": 360.8984375
+          "selector": "button.dig-Button.dig-Button--transparent.dig-Button--standard.dig-Button--medium.dig-Button--hasUnderline.dig-Button-tone--neutral.dig-Theme-vis2023.dig-Theme-vis2023--dark.dig-Mode--dark.In-Theme-Provider.dig-Theme--cancel-inverse.dig-u1jsn63_24-3-0.dig-u1jsn6t_24-3-0.dig-1t3llsud_24-3-0.dig-u1jsn610_24-3-0.dig-u1jsn61i_24-3-0.dig-u1jsn61p_24-3-0.dig-u1jsn61k_24-3-0.dig-u1jsn61r_24-3-0.dig-u1jsn620_24-3-0",
+          "x": 781.4921875,
+          "y": 1058.0
         }
       },
       {
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--transparent.dig-IconButton--standard.dig-IconButton--medium.dig-Banner-close.dig-1rt34et1_24-2-2.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i07_24-2-2.dig-q8c3i0a_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0q_24-2-2[aria-label=\"Close\"][data-testid=\"digBannerCloseButton\"]",
-          "x": 945.0,
-          "y": 358.0
+          "selector": "div.ReactModal__Overlay.ReactModal__Overlay--after-open.dig-Modal-overlay.dig-1fl7sok3_24-3-0.dig-Theme-vis2023.dig-Theme-vis2023--bright.dig-Mode--bright.In-Theme-Provider",
+          "x": 496.5,
+          "y": 619.5
         }
       },
       {
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--large._icon-button_7x8uw_1.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0c_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Download\"]",
-          "x": 685.484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--transparent.dig-Button--standard.dig-Button--medium.dig-Button--hasUnderline.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6t_24-2-2.dig-1t3llsud_24-2-2.dig-u1jsn610_24-2-2.dig-u1jsn61i_24-2-2.dig-u1jsn61p_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn620_24-2-2",
+          "selector": "button.dig-Button.dig-Button--transparent.dig-Button--standard.dig-Button--medium.dig-Button--hasUnderline.dig-Button-tone--neutral.dig-u1jsn63_24-3-0.dig-u1jsn6t_24-3-0.dig-1t3llsud_24-3-0.dig-u1jsn610_24-3-0.dig-u1jsn61i_24-3-0.dig-u1jsn61p_24-3-0.dig-u1jsn61k_24-3-0.dig-u1jsn61r_24-3-0.dig-u1jsn620_24-3-0",
           "x": 239.5078125,
-          "y": 882.0
+          "y": 854.0
         }
       },
       {
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--large._icon-button_7x8uw_1.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0c_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Download\"]",
+          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--large._icon-button_7x8uw_1.dig-q8c3i02_24-3-0.dig-q8c3i01_24-3-0.dig-q8c3i08_24-3-0.dig-q8c3i0c_24-3-0.dig-q8c3i0g_24-3-0.dig-q8c3i0l_24-3-0.dig-q8c3i0r_24-3-0[aria-label=\"Download\"]",
           "x": 685.484375,
-          "y": 249.0
+          "y": 193.0
         }
       },
       {
-        "type": "click",
+        "type": "terminate",
         "params": {
-          "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--opacity.dig-Button--large.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6p_24-2-2.dig-1t3llsue_24-2-2.dig-u1jsn6h_24-2-2.dig-u1jsn61i_24-2-2.dig-1t3llsui_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn61w_24-2-2[aria-label*=\"Button to trigger login dialog\"]",
-          "x": 819.1484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--standard.dig-IconButton--medium.dig-Modal-close-btn.dig-1fl7soku_24-2-2.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0a_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Cancel\"][data-testid=\"digModalCloseButton\"]",
-          "x": 679.5,
-          "y": 317.296875
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--large._icon-button_7x8uw_1.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0c_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Download\"]",
-          "x": 685.484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--large._icon-button_7x8uw_1.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0c_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Download\"]",
-          "x": 685.484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--opacity.dig-Button--large.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6p_24-2-2.dig-1t3llsue_24-2-2.dig-u1jsn6h_24-2-2.dig-u1jsn61i_24-2-2.dig-1t3llsui_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn61w_24-2-2[aria-label*=\"Button to trigger login dialog\"]",
-          "x": 819.1484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--standard.dig-IconButton--medium.dig-Modal-close-btn.dig-1fl7soku_24-2-2.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0a_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Cancel\"][data-testid=\"digModalCloseButton\"]",
-          "x": 679.5,
-          "y": 317.296875
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--opacity.dig-Button--large.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6p_24-2-2.dig-1t3llsue_24-2-2.dig-u1jsn6h_24-2-2.dig-u1jsn61i_24-2-2.dig-1t3llsui_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn61w_24-2-2[aria-label*=\"Button to trigger login dialog\"]",
-          "x": 819.1484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--standard.dig-IconButton--medium.dig-Modal-close-btn.dig-1fl7soku_24-2-2.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0a_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Cancel\"][data-testid=\"digModalCloseButton\"]",
-          "x": 679.5,
-          "y": 317.296875
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--large._icon-button_7x8uw_1.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0c_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Download\"]",
-          "x": 685.484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--opacity.dig-Button--large.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6p_24-2-2.dig-1t3llsue_24-2-2.dig-u1jsn6h_24-2-2.dig-u1jsn61i_24-2-2.dig-1t3llsui_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn61w_24-2-2[aria-label*=\"Button to trigger login dialog\"]",
-          "x": 819.1484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--standard.dig-IconButton--medium.dig-Modal-close-btn.dig-1fl7soku_24-2-2.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0a_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Cancel\"][data-testid=\"digModalCloseButton\"]",
-          "x": 679.5,
-          "y": 317.296875
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--opacity.dig-Button--large.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6p_24-2-2.dig-1t3llsue_24-2-2.dig-u1jsn6h_24-2-2.dig-u1jsn61i_24-2-2.dig-1t3llsui_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn61w_24-2-2[aria-label*=\"Button to trigger login dialog\"]",
-          "x": 819.1484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--standard.dig-IconButton--medium.dig-Modal-close-btn.dig-1fl7soku_24-2-2.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0a_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Cancel\"][data-testid=\"digModalCloseButton\"]",
-          "x": 679.5,
-          "y": 317.296875
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--opacity.dig-Button--large.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6p_24-2-2.dig-1t3llsue_24-2-2.dig-u1jsn6h_24-2-2.dig-u1jsn61i_24-2-2.dig-1t3llsui_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn61w_24-2-2[aria-label*=\"Button to trigger login dialog\"]",
-          "x": 819.1484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--standard.dig-IconButton--medium.dig-Modal-close-btn.dig-1fl7soku_24-2-2.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0a_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Cancel\"][data-testid=\"digModalCloseButton\"]",
-          "x": 679.5,
-          "y": 317.296875
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--opacity.dig-Button--large.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6p_24-2-2.dig-1t3llsue_24-2-2.dig-u1jsn6h_24-2-2.dig-u1jsn61i_24-2-2.dig-1t3llsui_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn61w_24-2-2[aria-label*=\"Button to trigger login dialog\"]",
-          "x": 819.1484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--standard.dig-IconButton--medium.dig-Modal-close-btn.dig-1fl7soku_24-2-2.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0a_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Cancel\"][data-testid=\"digModalCloseButton\"]",
-          "x": 679.5,
-          "y": 317.296875
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--opacity.dig-Button--large.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6p_24-2-2.dig-1t3llsue_24-2-2.dig-u1jsn6h_24-2-2.dig-u1jsn61i_24-2-2.dig-1t3llsui_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn61w_24-2-2[aria-label*=\"Button to trigger login dialog\"]",
-          "x": 819.1484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--standard.dig-IconButton--medium.dig-Modal-close-btn.dig-1fl7soku_24-2-2.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0a_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Cancel\"][data-testid=\"digModalCloseButton\"]",
-          "x": 679.5,
-          "y": 317.296875
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-Button.dig-Button--opacity.dig-Button--large.dig-Button-tone--neutral.dig-u1jsn63_24-2-2.dig-u1jsn6p_24-2-2.dig-1t3llsue_24-2-2.dig-u1jsn6h_24-2-2.dig-u1jsn61i_24-2-2.dig-1t3llsui_24-2-2.dig-u1jsn61k_24-2-2.dig-u1jsn61r_24-2-2.dig-u1jsn61w_24-2-2[aria-label*=\"Button to trigger login dialog\"]",
-          "x": 819.1484375,
-          "y": 249.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "button.dig-IconButton.dig-IconButton--borderless.dig-IconButton--standard.dig-IconButton--medium.dig-Modal-close-btn.dig-1fl7soku_24-2-2.dig-q8c3i02_24-2-2.dig-q8c3i01_24-2-2.dig-q8c3i08_24-2-2.dig-q8c3i0a_24-2-2.dig-q8c3i0g_24-2-2.dig-q8c3i0l_24-2-2.dig-q8c3i0r_24-2-2[aria-label=\"Cancel\"][data-testid=\"digModalCloseButton\"]",
-          "x": 679.5,
-          "y": 317.296875
+          "reason": "The previous actions indicate that the download has been initiated and the task is considered complete. The current HTML does not show any elements that require further interaction based on the provided instructions. Therefore, terminating the task."
         }
       }
     ],
