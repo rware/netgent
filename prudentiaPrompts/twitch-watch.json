@@ -1,0 +1,80 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "type",
+        "params": {
+          "text": "Twitch.tv",
+          "by": "css selector",
+          "selector": "input.truncate[id=\"input\"][type=\"search\"][autocomplete=\"off\"][role=\"combobox\"][placeholder*=\"Search Google or type a URL\"]",
+          "x": 477.5,
+          "y": 431.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "cr-searchbox-match[role=\"option\"][aria-describedby=\"\"][aria-label=\"twitch.tv\"]",
+          "x": 496.5,
+          "y": 477.0
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "Successfully navigated to the Twitch.tv homepage."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "On the Video Player",
+    "description": "Play the video from the beginning for 30 seconds",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://www.twitch.tv/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "a.ScCoreLink-sc-16kq0mq-0.fytYW.preview-card-channel-link.tw-link[aria-label*=\"jynxzi (Verified) streaming [539/730] \ud83d\udc94 RONALDO SCORED 2x \ud83d\udc94 THE SADDEST DAY EVER \ud83d\udc94 DIAMOND IN ROCKET LEAGUE \ud83d\udc94 FORTNITE \ud83d\udc94 MAYBE LOL \ud83d\udc94 IDK IM SAD \ud83d\udc94\"][href=\"/jynxzi\"]",
+          "x": 329.5,
+          "y": 858.828125
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 600
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The user's instruction was to click on a live video and then terminate immediately. The previous action successfully clicked on a live video, and the current page shows the stream. Therefore, the task is complete, and I am terminating."
+        }
+      }
+    ],
+    "end_state": "Action Completed",
+    "executed": []
+  }
+]
