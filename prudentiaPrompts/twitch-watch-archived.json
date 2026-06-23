@@ -1,0 +1,107 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://www.twitch.tv/videos/2779653841"
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 600
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "Task completed successfully. Navigated to the URL and waited for 30 seconds as per instructions."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": [
+      {
+        "name": "On Browser Home Page",
+        "description": "Start the Process",
+        "checks": [
+          {
+            "type": "url",
+            "params": {
+              "url": "https://www.twitch.tv/videos/2779653841"
+            }
+          },
+          {
+            "type": "text",
+            "params": {
+              "text": "Browse"
+            }
+          },
+          {
+            "type": "element",
+            "params": {
+              "by": "css selector",
+              "selector": "p.CoreText-sc-1txzju1-0.ScTitleText-sc-d9mj2s-0.bqyYtA.lbYztg.InjectLayout-sc-1i43xsx-0.irzZLq.tw-title"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "type": "terminate",
+            "params": {
+              "reason": "Task completed successfully. Navigated to the URL and waited for 30 seconds as per instructions."
+            }
+          }
+        ],
+        "end_state": "",
+        "executed": []
+      }
+    ]
+  },
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://www.twitch.tv/videos/2779653841"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Browse"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "p.CoreText-sc-1txzju1-0.ScTitleText-sc-d9mj2s-0.bqyYtA.lbYztg.InjectLayout-sc-1i43xsx-0.irzZLq.tw-title"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "Task completed successfully. Navigated to the URL and waited for 30 seconds as per instructions."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  }
+]
