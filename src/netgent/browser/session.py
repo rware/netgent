@@ -16,7 +16,7 @@ class BrowserSession:
             "--no-sandbox",
             "--use-fake-ui-for-media-stream",
             "--use-fake-device-for-media-stream",
-            "--window-size=1920,1080",
+            "--window-size=3840,2160",
             "--start-maximized",
             "--disable-gpu",
         ]
@@ -30,7 +30,7 @@ class BrowserSession:
         self.proxy: str = proxy
         self.user_data_dir: str | None = user_data_dir
         self.start()
-    
+
     @property
     def driver(self) -> Driver:
         if self._driver is None:
@@ -44,7 +44,7 @@ class BrowserSession:
         import os
         if not os.environ.get('DISPLAY'):
             os.environ['DISPLAY'] = ':99'
-        
+
         # Setup Xlib display for pyautogui on Linux/X11
         try:
             import Xlib.display
@@ -55,7 +55,7 @@ class BrowserSession:
             logger.warning("Xlib not available - pyautogui may not work correctly on X11")
         except Exception as e:
             logger.warning(f"Could not setup Xlib display for pyautogui: {e}")
-        
+
         # Don't use xvfb=True since we're managing Xvfb ourselves in the startup script
         self._driver = Driver(uc=True, headed=True, browser="chrome", chromium_arg=self._args, use_auto_ext=False,
             undetectable=True, proxy=self.proxy, user_data_dir=self.user_data_dir)

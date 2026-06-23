@@ -125,7 +125,7 @@ if [ "$LEGACY" -eq 1 ]; then
     exit $?
   fi
 
-  exec python3 /home/agent/app/src/netgent/cli.py "${CLI_ARGS[@]}"
+  python3 /home/agent/app/src/netgent/cli.py "${CLI_ARGS[@]}"
 fi
 
 # ===========================================================================
