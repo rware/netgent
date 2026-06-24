@@ -62,10 +62,22 @@
         }
       },
       {
+        "type": "start_stats_logging",
+        "params": {
+          "out_path": "/capture/stats/twitchLive_stats.jsonl",
+          "interval": 2.0
+        }
+      },
+      {
         "type": "wait",
         "params": {
           "seconds": 600
         }
+      },
+      {
+        "type": "stop_stats_logging",
+        "params":{}
+
       },
       {
         "type": "terminate",
