@@ -1,6 +1,8 @@
 from seleniumbase import Driver
 import logging
 logger = logging.getLogger(__name__)
+from selenium.webdriver.common.keys import Keys
+from selenium import webdriver
 
 """
 Initializes Browser Session with SeleniumBase.
@@ -10,7 +12,7 @@ class BrowserSession:
     def __init__(self, proxy: str = None, user_data_dir: str | None = None):
         self._driver: Driver | None = None
         self._default_args: list[str] = [
-            "--force-device-scale-factor=1",
+            "--force-device-scale-factor=-3.8017840169239308",
             "--disable-dev-shm-usage",
             "--disable-blink-features=AutomationControlled",
             "--no-sandbox",
@@ -59,6 +61,9 @@ class BrowserSession:
         # Don't use xvfb=True since we're managing Xvfb ourselves in the startup script
         self._driver = Driver(uc=True, headed=True, browser="chrome", chromium_arg=self._args, use_auto_ext=False,
             undetectable=True, proxy=self.proxy, user_data_dir=self.user_data_dir)
+
+        self._driver.set_window_size(3840, 2160)
+        self._driver.set_window_position(-3, 0)
 
     def quit(self):
         if self._driver is None:
