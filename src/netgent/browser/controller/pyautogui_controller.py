@@ -9,7 +9,7 @@ import random
 import logging
 
 logger = logging.getLogger(__name__)
-
+pyautogui.FAILSAFE = False
 
 def bezier(n, control_point_1=(0.25, 0.1), control_point_2=(0.75, 0.9)):
     """Bezier curve tween function for smooth mouse movement."""
