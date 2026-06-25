@@ -69,4 +69,7 @@ RUN chmod +x /usr/local/bin/capture-netgent
 COPY scripts/start-capture.sh /usr/local/bin/start-netgent-capture
 RUN chmod +x /usr/local/bin/start-netgent-capture
 
+COPY prudentiaPrompts/ /home/agent/app
+
+
 ENTRYPOINT ["/usr/local/bin/start-netgent-capture"]
