@@ -33,6 +33,12 @@ class NetGent():
         self.driver = driver
         if self.driver is None:
             self.driver = BrowserSession(user_data_dir=user_data_dir).driver
+        
+        #added
+        self.driver.set_window_size(3840, 2160)
+        self.driver.set_window_position(-3, 0)
+        #end of aditions
+
         self.controller = controller
         if self.controller is None:
             self.controller = PyAutoGUIController(self.driver)
