@@ -26,7 +26,7 @@
       {
         "type": "terminate",
         "params": {
-          "reason": "The task is completed as per the instructions. The page has been navigated to, and the required wait time has passed. The next step is to terminate the action."
+          "reason": "Task completed as per user instructions. Navigated to the URL and waited for the specified duration."
         }
       }
     ],
@@ -63,20 +63,20 @@
         "params": {
           "by": "css selector",
           "selector": "button.mega-component.lg-size.secondary.icon-loading.visible-txt.nav-elem.normal.button",
-          "x": 496.5,
-          "y": 809.5
+          "x": 1944.0,
+          "y": 1369.5
         }
       },
-      {
+            {
         "type": "wait",
         "params": {
-          "seconds": 600
+          "seconds": 30
         }
       },
       {
         "type": "terminate",
         "params": {
-          "reason": "The user's instruction was to click on the download icon, wait 600 seconds and then terminate. The previous action trajectory shows that the download icon was clicked, and 600 seconds have elapsed. Therefore, the task is complete."
+          "reason": "The user's instruction was to click the download icon. The previous action trajectory indicates that the download icon (with mmid 9) was clicked. The task is now complete as per the instructions."
         }
       }
     ],
