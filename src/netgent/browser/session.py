@@ -12,15 +12,16 @@ class BrowserSession:
     def __init__(self, proxy: str = None, user_data_dir: str | None = None):
         self._driver: Driver | None = None
         self._default_args: list[str] = [
-            "--force-device-scale-factor=-3.8017840169239308",
+            # "--profile.default_zoom_level: -2",
             "--disable-dev-shm-usage",
             "--disable-blink-features=AutomationControlled",
             "--no-sandbox",
             "--use-fake-ui-for-media-stream",
             "--use-fake-device-for-media-stream",
-            "--window-size=3840,2160",
+            "--window-size=1920,1080",
             "--start-maximized",
             "--disable-gpu",
+            "--ssl-key-log-file=/opt/SSLkeylogs/sslkeylog.log"
         ]
         if user_data_dir:
             self._default_args.append(f" --user-data-dir={user_data_dir}")
@@ -48,22 +49,20 @@ class BrowserSession:
             os.environ['DISPLAY'] = ':99'
 
         # Setup Xlib display for pyautogui on Linux/X11
-        try:
-            import Xlib.display
-            import pyautogui
-            pyautogui._pyautogui_x11._display = Xlib.display.Display(os.environ['DISPLAY'])
-        except ImportError:
-            # Xlib might not be available, but this is not critical
-            logger.warning("Xlib not available - pyautogui may not work correctly on X11")
-        except Exception as e:
-            logger.warning(f"Could not setup Xlib display for pyautogui: {e}")
+        import Xlib.display
+        import pyautogui
+        from pyvirtualdisplay import Display
+        #Added
+        # v_display = Display(visible=True, size=(3840,2160), backend="xvfb", use_xauth=True)
+        # v_display.start()
+        #end of add
+        pyautogui._pyautogui_x11._display = Xlib.display.Display(os.environ['DISPLAY'])
 
         # Don't use xvfb=True since we're managing Xvfb ourselves in the startup script
         self._driver = Driver(uc=True, headed=True, browser="chrome", chromium_arg=self._args, use_auto_ext=False,
             undetectable=True, proxy=self.proxy, user_data_dir=self.user_data_dir)
-
-        self._driver.set_window_size(3840, 2160)
-        self._driver.set_window_position(-3, 0)
+        self._driver.set_window_size(3840,2160)
+        # self._driver.set_window_size(1920,1080)
 
     def quit(self):
         if self._driver is None:
