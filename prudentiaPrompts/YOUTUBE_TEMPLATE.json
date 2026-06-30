@@ -1,0 +1,57 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://www.google.com/"
+        }
+      },
+
+      {
+        "type": "navigate",
+        "params": {
+          "url": "URL"
+        }
+      },
+      {
+        "type": "start_stats_logging",
+        "params": {
+          "out_path": "/capture/stats/vimio_stats.jsonl",
+          "interval": 0.5
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": WAITTIME
+        }
+      },
+
+      {
+        "type": "stop_stats_logging",
+        "params":{}
+
+      },
+
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The YouTube video has loaded successfully. As per the instructions, the next step is to terminate the task."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  }
+]
