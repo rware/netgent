@@ -50,17 +50,15 @@ prompt = [
             name="Go to link",
             description="Naviage to the link provided",
             triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
-            actions=["[1] Hit control L to select the search bar", "[2] Go to the url 'https://drive.google.com/file/d/1-NxvPDe2rnexjTCW5h1oV0LY_0nUMK37/view?usp=sharing'", "[3] Wait 30 seconds"],
+            actions=["[1] Hit control L to select the search bar", "[2] Go to the url 'https://drive.usercontent.google.com/download?id=1twmTO68VmdVkaxF09gli2lQ3x0fi_etX&export=download'", "[3] Wait 5 seconds"],
         ),
         StatePrompt(
             name="Download the file from current page",
-            description="Downloads the drive file on the webpage",
+            description="Attempts to download the file",
             triggers=["If it is on the current condition of the page! (Create trigger based on current page)"],
-            actions=["[1] Click the Download Icon", "[3] Wait 30 seconds"],
+            actions=["[1] Click the Download Anyway Icon in the center of the page", "[2] Wait 10 seconds"],
             end_state="Action Completed"
-        ),
-
-        
+        )
     ]
 
 

@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Default environment for X and noVNC
 ENV DISPLAY=:99 \
-    RESOLUTION=1920x1080x24 \
+    RESOLUTION=3840x2160x24 \
     DBUS_SESSION_BUS_ADDRESS=/dev/null \
     PIP_NO_CACHE_DIR=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xvfb x11vnc fluxbox \
     openssh-server \
     libnss3 libxss1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libgbm1 fonts-liberation \
-    python3-xlib python3-tk scrot \
+    python3-xlib python3-tk scrot\
     tcpdump ffmpeg \
   && rm -rf /var/lib/apt/lists/*
 
@@ -68,6 +68,8 @@ RUN chmod +x /usr/local/bin/capture-netgent
 
 COPY scripts/start-capture.sh /usr/local/bin/start-netgent-capture
 RUN chmod +x /usr/local/bin/start-netgent-capture
+
+RUN pip install pyvirtualdisplay
 
 COPY prudentiaPrompts/ /home/agent/app
 

@@ -14,19 +14,19 @@
       {
         "type": "navigate",
         "params": {
-          "url": "https://drive.google.com/file/d/1-NxvPDe2rnexjTCW5h1oV0LY_0nUMK37/view?usp=sharing"
+          "url": "https://drive.usercontent.google.com/download?id=1twmTO68VmdVkaxF09gli2lQ3x0fi_etX&export=download"
         }
       },
       {
         "type": "wait",
         "params": {
-          "seconds": 30
+          "seconds": 5
         }
       },
       {
         "type": "terminate",
         "params": {
-          "reason": "The task is completed as per the instructions. The URL was navigated to and the 30-second wait was executed. The next step is to terminate."
+          "reason": "The task is to navigate to the URL, wait for 5 seconds, and then terminate. The navigation and wait have been completed. The current HTML shows a 'Download anyway' button, indicating the page has loaded. Therefore, the next step is to terminate the task as per the instructions."
         }
       }
     ],
@@ -35,25 +35,52 @@
   },
   {
     "name": "Download the file from current page",
-    "description": "Downloads the drive file on the webpage",
+    "description": "Attempts to download the file",
     "checks": [
       {
-        "type": "url",
+        "type": "text",
         "params": {
-          "url": "https://drive.google.com/file/d/1-NxvPDe2rnexjTCW5h1oV0LY_0nUMK37/view"
+          "text": "is too large for Google to scan for viruses. Would you still like to download this file?"
         }
       },
       {
         "type": "text",
         "params": {
-          "text": "USGovernmentBudgetFY2025.pdf"
+          "text": "(10G)"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "prudentiaTenGigs.bin"
         }
       },
       {
         "type": "element",
         "params": {
           "by": "css selector",
-          "selector": "span[aria-describedby=\"HADQ6c\"]"
+          "selector": "p.uc-warning-caption"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "p.uc-warning-subcaption"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span.uc-name-size"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "a[href=\"/open?id=1twmTO68VmdVkaxF09gli2lQ3x0fi_etX\"]"
         }
       }
     ],
@@ -62,36 +89,78 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.pYTkkf-Bz112c-LgbsSe.pYTkkf-Bz112c-LgbsSe-OWXEXe-SfQLQb-suEOdc.Tv4I0c.vbwSSe[aria-label=\"Download\"]",
-          "x": 234.484375,
-          "y": 289.0
-        }
-      },
-      {
-        "type": "wait",
-        "params": {
-          "seconds": 30
+          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
+          "x": 1778.5703125,
+          "y": 309.265625
         }
       },
       {
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.pYTkkf-Bz112c-LgbsSe.pYTkkf-Bz112c-LgbsSe-OWXEXe-SfQLQb-suEOdc.Tv4I0c.vbwSSe[aria-label=\"Download\"]",
-          "x": 234.484375,
-          "y": 289.0
+          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
+          "x": 1778.5703125,
+          "y": 309.265625
         }
       },
       {
-        "type": "wait",
+        "type": "click",
         "params": {
-          "seconds": 30
+          "by": "css selector",
+          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
+          "x": 1778.5703125,
+          "y": 309.265625
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
+          "x": 1778.5703125,
+          "y": 309.265625
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
+          "x": 1778.5703125,
+          "y": 309.265625
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
+          "x": 1778.5703125,
+          "y": 309.265625
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
+          "x": 1778.5703125,
+          "y": 309.265625
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
+          "x": 1778.5703125,
+          "y": 309.265625
         }
       },
       {
         "type": "terminate",
         "params": {
-          "reason": "The task is completed as per the instructions. The download icon was clicked and the 30-second wait was executed. The next step is to terminate."
+          "reason": "Quota exceeded. The download cannot be completed due to too many views or downloads of the file."
         }
       }
     ],

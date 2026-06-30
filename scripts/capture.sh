@@ -19,7 +19,7 @@ SCREENSHOT_INTERVAL="${SCREENSHOT_INTERVAL:-2}"
 
 # Derive ffmpeg WxH from RESOLUTION like "1920x1080x24" -> "1920x1080".
 _video_size() {
-  local r="${RESOLUTION:-1920x1080x24}"
+  local r="${RESOLUTION:-3840x2160x24}"
   echo "${r%x*}"
 }
 
