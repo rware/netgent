@@ -1,0 +1,112 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "type",
+        "params": {
+          "text": "tiktok.com/en/",
+          "by": "css selector",
+          "selector": "input.truncate[id=\"input\"][type=\"search\"][autocomplete=\"off\"][role=\"combobox\"][placeholder*=\"Search Google or type a URL\"]",
+          "x": 1901.5,
+          "y": 377.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "cr-searchbox-match[role=\"option\"][aria-describedby=\"\"][aria-label=\"tiktok.com/en/\"]",
+          "x": 1920.5,
+          "y": 423.0
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "Navigated to TikTok homepage as requested and terminating the task."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "On the Video Player",
+    "description": "Play the video from the beginning for 30 seconds",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://www.tiktok.com/en/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "scroll",
+        "params": {
+          "direction": "down",
+          "pixels": 1000
+        }
+      },
+      {
+        "type": "scroll",
+        "params": {
+          "direction": "down",
+          "pixels": 1000
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 30
+        }
+      },
+      {
+        "type": "scroll",
+        "params": {
+          "direction": "down",
+          "pixels": 1000
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 30
+        }
+      },
+      {
+        "type": "scroll",
+        "params": {
+          "direction": "down",
+          "pixels": 1000
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 30
+        }
+      },
+
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The user explicitly instructed to terminate the action after scrolling and waiting. The previous actions show that the user has scrolled down and waited for 30 seconds. Therefore, the next logical step is to terminate the task."
+        }
+      }
+    ],
+    "end_state": "Action Completed",
+    "executed": []
+  }
+]
