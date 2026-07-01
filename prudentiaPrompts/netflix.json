@@ -1,0 +1,150 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Go to netflix",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "type",
+        "params": {
+          "text": "Netflix login page",
+          "by": "css selector",
+          "selector": "input.truncate[id=\"input\"][type=\"search\"][autocomplete=\"off\"][role=\"combobox\"][placeholder*=\"Search Google or type a URL\"]",
+          "x": 1901.5,
+          "y": 377.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "cr-searchbox-match[role=\"option\"][aria-describedby=\"\"][aria-label*=\"Netflix login page search, Google Search\"]",
+          "x": 1920.5,
+          "y": 423.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "cite.qLRx3b.tjvcx.GvPZzd.cHaqb[role=\"text\"]",
+          "x": 356.640625,
+          "y": 288.0
+        }
+      },
+      {
+        "type": "type",
+        "params": {
+          "text": "ssl@cs.swarthmore.edu",
+          "by": "css selector",
+          "selector": "input[type=\"text\"][autocomplete=\"email\"][id=\":R5akql6l9allbaldajkm:\"][name=\"userLoginId\"]",
+          "x": 1920.5,
+          "y": 338.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "x": 1760.5,
+          "y": 400.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 15
+        }
+      },
+
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "x": 1725.5,
+          "y": 548.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 15
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".default-ltr-iqcdef-cache-sev62h"
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".default-ltr-iqcdef-cache-1946l91 > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > a:nth-child(1)"
+        }
+      },
+      {
+        "type": "type",
+        "params": {
+          "text": "MushroomLab",
+          "by": "css selector",
+          "selector": "#\\:re\\:",
+          "x": 1920.5,
+          "y": 338.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".default-ltr-iqcdef-cache-1hj3sb0"
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "li.profile:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1) > div:nth-child(1)"
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".color-primary"
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".color-primary"
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 15
+        }
+      },
+
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The user explicitly asked to terminate the action in Step 2 of the instructions. The previous steps have been executed, and the current state indicates that termination is the next required action."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  }
+]
