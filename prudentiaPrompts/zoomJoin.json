@@ -1,0 +1,96 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://www.google.com/"
+        }
+      },
+
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://swarthmore.zoom.us/j/7796793290?pwd=4avmWeHvM1rTq2NuTA7MbrUzuboiuj.1&omn=83265810528"
+        }
+      },
+      {
+        "type": "start_stats_logging",
+        "params": {
+          "out_path": "/capture/stats/vimio_stats.jsonl",
+          "interval": 0.5
+        }
+      },
+
+        {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "x": 1990.5,
+          "y": 247.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.zoom-button:nth-child(2)",
+          "x": 2320.5,
+          "y": 1167.0
+        }
+      },
+      {
+        "type": "type",
+        "params": {
+          "text": "Wombat;",
+          "by": "css selector",
+          "selector": "#input-for-name",
+          "x": 2320.5,
+          "y": 1070.0
+
+        }
+    },
+          {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".zm-btn",
+          "x": 2320.5,
+          "y": 1167.0
+        }
+      },
+
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 30
+        }
+      },
+
+      {
+        "type": "stop_stats_logging",
+        "params":{}
+
+      },
+
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The Zoom Link has loaded successfully. As per the instructions, the next step is to terminate the task."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  }
+]
