@@ -16,7 +16,11 @@
         "params": {
           "text": "Netflix login page",
           "by": "css selector",
+<<<<<<< HEAD
           "selector": "input.truncate[id=\"input\"][type=\"search\"][autocomplete=\"on\"][role=\"combobox\"][placeholder*=\"Search Google or type a URL\"]",
+=======
+          "selector": "input.truncate[id=\"input\"][type=\"search\"][autocomplete=\"off\"][role=\"combobox\"][placeholder*=\"Search Google or type a URL\"]",
+>>>>>>> f99c0ea64ffdbcf49c08523335bb9acd2b4abfb9
           "x": 1901.5,
           "y": 377.0
         }
@@ -57,6 +61,15 @@
           "y": 400.0
         }
       },
+<<<<<<< HEAD
+=======
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 15
+        }
+      },
+>>>>>>> f99c0ea64ffdbcf49c08523335bb9acd2b4abfb9
 
       {
         "type": "click",
@@ -67,6 +80,15 @@
         }
       },
       {
+<<<<<<< HEAD
+=======
+        "type": "wait",
+        "params": {
+          "seconds": 15
+        }
+      },
+      {
+>>>>>>> f99c0ea64ffdbcf49c08523335bb9acd2b4abfb9
         "type": "click",
         "params": {
           "by": "css selector",

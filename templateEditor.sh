@@ -65,4 +65,8 @@ elif [[ "$FILENAME" == *"VIMIO"* ]]; then
     fi
 fi
 # Disable case-insensitive matching to restore default behavior
+<<<<<<< HEAD
 shopt -u nocasematch
+=======
+shopt -u nocasematch
+>>>>>>> f99c0ea64ffdbcf49c08523335bb9acd2b4abfb9

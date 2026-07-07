@@ -27,7 +27,11 @@
       {
         "type": "start_stats_logging",
         "params": {
+<<<<<<< HEAD
           "out_path": "/capture/stats/youtube_stats.jsonl",
+=======
+          "out_path": "/capture/stats/vimio_stats.jsonl",
+>>>>>>> f99c0ea64ffdbcf49c08523335bb9acd2b4abfb9
           "interval": 0.5
         }
       },
