@@ -1,0 +1,158 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://open.spotify.com/album/6KpStFxRlr2jBWpZkyUeUO"
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "Navigation to the specified URL completed successfully. Task terminated as per instructions."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "On the Video Player",
+    "description": "Play the video from the beginning for 30 seconds",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://open.spotify.com/album/6KpStFxRlr2jBWpZkyUeUO"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.e-10451-legacy-button-primary.e-10451-legacy-button[data-testid=\"play-button\"][aria-label=\"Play\"]",
+          "x": 1209.0,
+          "y": 543.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.e-10451-legacy-button-primary.e-10451-legacy-button[data-testid=\"play-button\"][aria-label=\"Play\"]",
+          "x": 1209.0,
+          "y": 543.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".e-10451-button-icon-only--large > span:nth-child(1) > svg:nth-child(1)",
+          "x": 1209.0,
+          "y": 543.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".e-10451-text-link",
+          "x": 1209.0,
+          "y": 543.0
+        }
+      },
+      {
+        "type": "type",
+        "params": {
+          "text": "jkrauze1@swarthmore.edu",
+          "by": "css selector",
+          "selector": "#username",
+          "x": 1920.5,
+          "y": 338.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "span.e-91185-baseline",
+          "x": 1209.0,
+          "y": 543.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "a.e-91185-button",
+          "x": 1209.0,
+          "y": 543.0
+        }
+      },
+      {
+        "type": "type",
+        "params": {
+          "text": "ArrogantAnaconda11!",
+          "by": "css selector",
+          "selector": "#password",
+          "x": 1920.5,
+          "y": 338.0
+        }
+      },
+
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "span.e-91185-baseline",
+          "x": 1209.0,
+          "y": 543.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 5
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".e-10451-button-icon-only--large",
+          "x": 1209.0,
+          "y": 543.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 30
+        }
+      },
+
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The play button was clicked, and the task is to play music. The task is now complete."
+        }
+      }
+    ],
+    "end_state": "Action Completed",
+    "executed": []
+  }
+]
