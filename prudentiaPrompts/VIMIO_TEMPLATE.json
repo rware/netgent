@@ -1,0 +1,66 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://www.google.com/"
+        }
+      },
+
+      {
+        "type": "navigate",
+        "params": {
+          "url": "URL"
+        }
+      },
+    {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.Button_module_button__61be5b9c.shared_module_focusable__29a0c6d5.Button_module_icon__61be5b9c.exclude-global-button-styles.Tooltip_module_tooltipContainer__b2bc4d16.PlayButton_module_playButton__d6312f47[type=\"button\"][aria-labelledby=\"play-button-tooltip\"]",
+          "x": 64.0,
+          "y": 837.0
+        }
+      },
+      {
+        "type": "start_stats_logging",
+        "params": {
+          "out_path": "/capture/stats/vimio_stats.jsonl",
+          "interval": 0.5
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": WAITTIME
+        }
+      },
+
+      {
+        "type": "stop_stats_logging",
+        "params":{}
+
+      },
+
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The Vimio video has loaded successfully and played. As per the instructions, the next step is to terminate the task."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  }
+]

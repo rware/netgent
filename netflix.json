@@ -1,0 +1,192 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Go to netflix",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "type",
+        "params": {
+          "text": "Netflix login page",
+          "by": "css selector",
+          "selector": "input.truncate[id=\"input\"][type=\"search\"][autocomplete=\"off\"][role=\"combobox\"][placeholder*=\"Search Google or type a URL\"]",
+          "x": 1901.5,
+          "y": 377.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "cr-searchbox-match[role=\"option\"][aria-describedby=\"\"][aria-label*=\"Netflix login page search, Google Search\"]",
+          "x": 1920.5,
+          "y": 423.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "cite.qLRx3b.tjvcx.GvPZzd.cHaqb[role=\"text\"]",
+          "x": 356.640625,
+          "y": 288.0
+        }
+      },
+      {
+        "type": "type",
+        "params": {
+          "text": "Netflix Email Here",
+          "by": "css selector",
+          "selector": "input[type=\"text\"][autocomplete=\"email\"][id=\":R5akql6l9allbaldajkm:\"][name=\"userLoginId\"]",
+          "x": 1920.5,
+          "y": 338.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "x": 1760.5,
+          "y": 400.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 15
+        }
+      },
+
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "x": 1725.5,
+          "y": 548.0
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 15
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".default-ltr-iqcdef-cache-sev62h"
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".default-ltr-iqcdef-cache-1946l91 > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > a:nth-child(1)"
+        }
+      },
+      {
+        "type": "type",
+        "params": {
+          "text": "Netflix Password Here",
+          "by": "css selector",
+          "selector": "#\\:re\\:",
+          "x": 1920.5,
+          "y": 338.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".default-ltr-iqcdef-cache-1hj3sb0"
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 15
+        }
+      },
+
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The user explicitly asked to terminate the action in Step 2 of the instructions. The previous steps have been executed, and the current state indicates that termination is the next required action."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "On netflix login page",
+    "description": "Enter Email",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://www.netflix.com/login?serverState=Bgjru%2BvcAxLgAYkwWRWNdbaa5VmMZ6PG6xGurZNwsUDest80GqQ8%2FLMiJn7lQJIwcMUZ9%2BXPwaozclmopUGm3WlZB4NQQcqD%2Bsp2o36AovGo3iOtc3aJTR8uPS%2BvxCAOk5Wmxf83Yf8ltFppfnLp0UZ3zldCnGqQSFsBPyrugW2P%2FV7HkTiPGmZNrHgDuoJUWKq6kmYG8g00MM3JHXqO48gz7uPbrijLuaLcs07L3mIm8a567vE%2BF8%2FtTTlJpQ2i3Qn4FrC3t6%2BleqoRDbw8yAU8ho3AQ9OxwR0za9FM3%2FBq%2FgpL1m0PN4rqGAYiDgoM1uJFebySEZO3NL6w"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "Something went wrong. Review your email address and try again."
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "div.textWithTags"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "input[type=\"text\"][autocomplete=\"email\"][id=\":r4:\"][name=\"userLoginId\"]",
+          "x": 1920.5,
+          "y": 430.0
+        }
+      },
+      {
+        "type": "type",
+        "params": {
+          "text": "ssl@cs.swarthmore.edu",
+          "by": "css selector",
+          "selector": "input[type=\"text\"][autocomplete=\"email\"][id=\":r4:\"][name=\"userLoginId\"]",
+          "x": 1920.5,
+          "y": 430.0
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.e136yimv2.default-ltr-iqcdef-cache-1hj3sb0[type=\"submit\"]",
+          "x": 1920.5,
+          "y": 494.0
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The user's instructions clearly state to terminate the action at Step 3. The previous actions have been executed, and the current state indicates that termination is the next required action."
+        }
+      }
+    ],
+    "end_state": "Action Completed",
+    "executed": []
+  }
+]
