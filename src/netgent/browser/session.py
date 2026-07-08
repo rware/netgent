@@ -2,23 +2,15 @@ from seleniumbase import Driver
 import logging
 logger = logging.getLogger(__name__)
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
-from seleniumbase import BaseCase
-from seleniumbase import SB
 
 """
 Initializes Browser Session with SeleniumBase.
 With the pre-defined settings, the browser is ready to use.
 """
-class BrowserSession():
+class BrowserSession:
     def __init__(self, proxy: str = None, user_data_dir: str | None = None):
         self._driver: Driver | None = None
-        import os
-        if not os.environ.get('DISPLAY'):
-            os.environ['DISPLAY'] = ':99'
-        num = int(os.environ['DISPLAY'][1:])
-
         self._default_args: list[str] = [
             # "--profile.default_zoom_level: -2",
             "--disable-dev-shm-usage",
@@ -29,9 +21,7 @@ class BrowserSession():
             "--window-size=1920,1080",
             "--start-maximized",
             "--disable-gpu",
-            "--ssl-key-log-file=/capture/sslkeylog.log",
-            # "--user-data-dir=/usr/local",
-            # f"--profile-directory=Profile {num}"
+            "--ssl-key-log-file=/opt/SSLkeylogs/sslkeylog.log"
         ]
         if user_data_dir:
             self._default_args.append(f" --user-data-dir={user_data_dir}")
@@ -68,14 +58,9 @@ class BrowserSession():
         #end of add
         pyautogui._pyautogui_x11._display = Xlib.display.Display(os.environ['DISPLAY'])
         num = int(os.environ['DISPLAY'][1:])
-        # driver_version_options=["147", "149", "148"]
-        # driver_version=driver_version_options[num % 3]
         # Don't use xvfb=True since we're managing Xvfb ourselves in the startup script
-
-
-
         self._driver = Driver(uc=True, headed=True, browser="chrome", chromium_arg=self._args, use_auto_ext=False,
-            undetectable=True, proxy=self.proxy, user_data_dir=f"/urs/local/userdata/my_user_dir{num}")
+            undetectable=True, proxy=self.proxy, user_data_dir=f"/urs/local/driver{num}")
         self._driver.set_window_size(3840,2160)
         # self._driver.set_window_size(1920,1080)
 
