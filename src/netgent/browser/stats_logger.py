@@ -91,7 +91,52 @@ function twitchStats() {
     } catch (e) { out.page_data_error = String(e); }
 
     addVideoElementStats(out, video);
+    addTwitchPlayerStats(out);
     return out;
+}
+
+// Twitch has no public "Stats for Nerds" API, but its React player component
+// carries a `mediaPlayerInstance` in props -- the same object behind the
+// Settings -> Advanced -> Video Stats overlay. We reach it by walking the React
+// fiber tree off a player DOM node. Undocumented internals, so this is
+// best-effort: a missing instance or renamed method yields a missing field
+// rather than a failed sample.
+function twitchPlayerInstance() {
+    const roots = document.querySelectorAll(
+        '[data-a-target="video-player"], .video-player, .persistent-player, video');
+    for (const root of roots) {
+        const key = Object.keys(root).find(k =>
+            k.startsWith('__reactInternalInstance$') || k.startsWith('__reactFiber$'));
+        if (!key) { continue; }
+        let fiber = root[key];
+        for (let i = 0; fiber && i < 40; i++) {
+            const props = fiber.memoizedProps || fiber.pendingProps;
+            if (props && props.mediaPlayerInstance) { return props.mediaPlayerInstance; }
+            fiber = fiber.return;
+        }
+    }
+    return null;
+}
+
+function addTwitchPlayerStats(out) {
+    try {
+        const p = twitchPlayerInstance();
+        if (!p) { out.player_instance_error = 'not_found'; return; }
+        // Units verified against a live page: bitrate in bits/sec, fps as a
+        // number, live latency in milliseconds, buffer in seconds.
+        if (typeof p.getVideoBitRate === 'function')   { out.bitrate_bps = p.getVideoBitRate(); }
+        if (typeof p.getAverageBitrate === 'function') { out.avg_bitrate_bps = p.getAverageBitrate(); }
+        if (typeof p.getVideoFrameRate === 'function') { out.fps = p.getVideoFrameRate(); }
+        if (typeof p.getLiveLatency === 'function')    { out.latency_ms = p.getLiveLatency(); }
+        if (typeof p.getBufferDuration === 'function') { out.player_buffer_secs = p.getBufferDuration(); }
+        if (typeof p.getState === 'function')          { out.player_state = p.getState(); }
+        // getQuality() -> {name, bitrate, framerate, width, height, codecs, ...};
+        // record the human-readable label (e.g. "720p60") for the served rendition.
+        if (typeof p.getQuality === 'function') {
+            const q = p.getQuality();
+            if (q) { out.quality = q.name; out.quality_codecs = q.codecs; }
+        }
+    } catch (e) { out.player_stats_error = String(e); }
 }
 
 function addVideoElementStats(out, video) {
