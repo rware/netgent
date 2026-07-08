@@ -3,12 +3,13 @@ import logging
 logger = logging.getLogger(__name__)
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
-
+import os
 """
 Initializes Browser Session with SeleniumBase.
 With the pre-defined settings, the browser is ready to use.
 """
 class BrowserSession:
+
     def __init__(self, proxy: str = None, user_data_dir: str | None = None):
         self._driver: Driver | None = None
         self._default_args: list[str] = [
@@ -59,12 +60,28 @@ class BrowserSession:
         pyautogui._pyautogui_x11._display = Xlib.display.Display(os.environ['DISPLAY'])
         num = int(os.environ['DISPLAY'][1:])
         # Don't use xvfb=True since we're managing Xvfb ourselves in the startup script
-        self._driver = Driver(uc=True, headed=True, browser="chrome", chromium_arg=self._args, use_auto_ext=False,
+        # self._driver = Driver(uc=True, headed=True, browser="chrome", chromium_arg=self._args, use_auto_ext=False,
+        #     undetectable=True, proxy=self.proxy, user_data_dir=f"/urs/local/gerbil/driver{num}")
+
+
+        self._driver = Driver(headed=True, browser="chrome", chromium_arg=self._args, use_auto_ext=False,
             undetectable=True, proxy=self.proxy, user_data_dir=f"/urs/local/gerbil/driver{num}")
         self._driver.set_window_size(3840,2160)
         # self._driver.set_window_size(1920,1080)
+        self.set_download_dir("")
 
     def quit(self):
         if self._driver is None:
             raise ValueError("Driver is not initialized")
-        self._driver.quit()
+        self._driver.quit("/capture/downloads")
+
+    def set_download_dir(self, down_path):
+        self._driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
+        params = {
+            'cmd': 'Page.setDownloadBehavior',
+            'params': {
+                'behavior': 'allow',
+                'downloadPath': os.path.normpath(os.path.abspath(down_path))
+            }
+        }
+        self._driver.execute("send_command", params)
