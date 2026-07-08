@@ -94,28 +94,40 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": ".default-ltr-iqcdef-cache-1hj3sb0"
+          "selector": ".default-ltr-iqcdef-cache-1hj3sb0",
+          "x": 20,
+          "y": 20
+
         }
       },
       {
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "li.profile:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1) > div:nth-child(1)"
+          "selector": "li.profile:nth-child(1) > div:nth-child(1) > a:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+          "x": 20,
+          "y": 20
+
         }
       },
       {
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": ".color-primary"
+          "selector": ".color-primary",
+          "x": 20,
+          "y": 20
+
         }
       },
       {
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": ".color-primary"
+          "selector": ".color-primary",
+         "x": 20,
+          "y": 20
+
         }
       },
       {
@@ -128,13 +140,16 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": ".primary-button > button:nth-child(1)"
+          "selector": ".primary-button > button:nth-child(1)",
+          "x": 20,
+          "y": 20
+
         }
       },
       {
         "type": "wait",
         "params": {
-          "seconds": 15
+          "seconds": 60
         }
       },
 
