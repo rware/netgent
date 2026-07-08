@@ -68,12 +68,12 @@ class BrowserSession:
             undetectable=True, proxy=self.proxy, user_data_dir=f"/urs/local/gerbil/driver{num}")
         self._driver.set_window_size(3840,2160)
         # self._driver.set_window_size(1920,1080)
-        self.set_download_dir("")
+        self.set_download_dir("/capture/downloads")
 
     def quit(self):
         if self._driver is None:
             raise ValueError("Driver is not initialized")
-        self._driver.quit("/capture/downloads")
+        self._driver.quit()
 
     def set_download_dir(self, down_path):
         self._driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
