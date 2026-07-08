@@ -29,7 +29,7 @@ class BrowserSession():
             "--window-size=1920,1080",
             "--start-maximized",
             "--disable-gpu",
-            "--ssl-key-log-file=/opt/SSLkeylogs/sslkeylog.log",
+            "--ssl-key-log-file=/capture/sslkeylog.log",
             # "--user-data-dir=/usr/local",
             # f"--profile-directory=Profile {num}"
         ]
