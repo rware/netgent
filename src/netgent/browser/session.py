@@ -60,7 +60,7 @@ class BrowserSession:
         num = int(os.environ['DISPLAY'][1:])
         # Don't use xvfb=True since we're managing Xvfb ourselves in the startup script
         self._driver = Driver(uc=True, headed=True, browser="chrome", chromium_arg=self._args, use_auto_ext=False,
-            undetectable=True, proxy=self.proxy, user_data_dir=f"/urs/local/driver{num}")
+            undetectable=True, proxy=self.proxy, user_data_dir=f"/urs/local/gerbil/driver{num}")
         self._driver.set_window_size(3840,2160)
         # self._driver.set_window_size(1920,1080)
 
