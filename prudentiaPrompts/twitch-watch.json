@@ -54,14 +54,7 @@
           "y": 757.6875
         }
       },
-      {
-        "type": "start_stats_logging",
-        "params": {
-          "out_path": "/capture/stats/twitch_stats.jsonl",
-          "interval": 2.0
-        }
-      },
-
+      
             {
         "type": "click",
         "params": {
@@ -98,6 +91,14 @@
           "selector": "body > div.ScReactModalBase-sc-26ijes-0.cfvyfk.tw-dialog-layer > div > div > div > div > div.ScBalloonWrapper-sc-14jr088-0.kwRewi.InjectLayout-sc-1i43xsx-0.kCsLVM.tw-balloon > div > div > div:nth-child(3) > div:nth-child(2) > div > div > div > div > div > label > div > div > span",
           "x": 2000.5,
           "y": 757.6875
+        }
+      },
+
+      {
+        "type": "start_stats_logging",
+        "params": {
+          "out_path": "/capture/stats/twitch_stats.jsonl",
+          "interval": 2.0
         }
       },
 
