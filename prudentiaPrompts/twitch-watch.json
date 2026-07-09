@@ -55,10 +55,64 @@
         }
       },
       {
+        "type": "start_stats_logging",
+        "params": {
+          "out_path": "/capture/stats/twitch_stats.jsonl",
+          "interval": 2.0
+        }
+      },
+
+            {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "x": 3455.5,
+          "y": 1810.6875
+        }
+      },
+
+
+     {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "#channel-player > div > div.Layout-sc-1xcs6mc-0.iqRXAC.player-controls__right-control-group > div:nth-child(1) > div:nth-child(2) > div > div > button",
+          "x": 1218.5,
+          "y": 757.6875
+        }
+      },
+
+     {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "body > div.ScReactModalBase-sc-26ijes-0.cfvyfk.tw-dialog-layer > div > div > div > div > div.ScBalloonWrapper-sc-14jr088-0.kwRewi.InjectLayout-sc-1i43xsx-0.kCsLVM.tw-balloon > div > div > div:nth-child(3) > div:nth-child(3) > button > div",
+          "x": 1500.5,
+          "y": 757.6875
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "body > div.ScReactModalBase-sc-26ijes-0.cfvyfk.tw-dialog-layer > div > div > div > div > div.ScBalloonWrapper-sc-14jr088-0.kwRewi.InjectLayout-sc-1i43xsx-0.kCsLVM.tw-balloon > div > div > div:nth-child(3) > div:nth-child(2) > div > div > div > div > div > label > div > div > span",
+          "x": 2000.5,
+          "y": 757.6875
+        }
+      },
+
+
+
+      {
         "type": "wait",
         "params": {
           "seconds": 30
         }
+      },
+      {
+        "type": "stop_stats_logging",
+        "params":{}
+
       },
       {
         "type": "terminate",
