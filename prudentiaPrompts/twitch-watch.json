@@ -98,7 +98,7 @@
         "type": "start_stats_logging",
         "params": {
           "out_path": "/capture/stats/twitch_stats.jsonl",
-          "interval": 2.0
+          "interval": 0.1
         }
       },
 
