@@ -54,12 +54,19 @@
           "y": 757.6875
         }
       },
-
       {
+        "type": "start_stats_logging",
+        "params": {
+          "out_path": "/capture/stats/twitch_stats.jsonl",
+          "interval": 2.0
+        }
+      },
+
+            {
         "type": "click",
         "params": {
           "by": "css selector",
-          "x": 3455.5,
+          "x": 3450.5,
           "y": 1810.6875
         }
       },
@@ -93,20 +100,13 @@
           "y": 757.6875
         }
       },
-      
-      {
-        "type": "start_stats_logging",
-        "params": {
-          "out_path": "/capture/stats/twitch_stats.jsonl",
-          "interval": 2.0
-        }
-      },
+
 
 
       {
         "type": "wait",
         "params": {
-          "seconds": 120
+          "seconds": 30
         }
       },
       {
