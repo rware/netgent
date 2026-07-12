@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Go to link",
+    "description": "Naviage to the link provided",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://mega.nz/file/1q81QCrK#4JOB85MSixkqULqEudROCMmtSB8rFbvwutOs4O-em8Q"
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 30
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "Task completed as per user instructions. Navigated to the URL and waited for the specified duration."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "Download the file from current page",
+    "description": "Click on a specific icon",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "URL"
+        }
+      },
+      {
+        "type": "text",
+        "params": {
+          "text": "EN"
+        }
+      },
+      {
+        "type": "element",
+        "params": {
+          "by": "css selector",
+          "selector": "span.primary-text"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "button.mega-component.lg-size.secondary.icon-loading.visible-txt.nav-elem.normal.button",
+          "x": 1944.0,
+          "y": 1369.5
+        }
+      },
+            {
+        "type": "wait",
+        "params": {
+          "seconds": WAITTIME
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The user's instruction was to click the download icon. The previous action trajectory indicates that the download icon (with mmid 9) was clicked. The task is now complete as per the instructions."
+        }
+      }
+    ],
+    "end_state": "Action Completed",
+    "executed": []
+  }
+]
