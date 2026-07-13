@@ -22,6 +22,14 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
         self.driver.get(url)
 
     @action()
+    def comment(self, words: str):
+        print(words)
+
+    @action()
+    def silentComment(self):
+        pass
+
+    @action()
     def start_stats_logging(self, out_path: str = "netgent_video_stats.jsonl", interval: float = 2.0):
         """Start logging video 'Stats for Nerds' metrics (YouTube/Twitch) to a JSONL file in the background.
 
