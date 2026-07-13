@@ -1,0 +1,177 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://www.twitch.tv/"
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 5
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The user has explicitly instructed to terminate the action after the specified steps. The navigation and wait steps have been completed."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "On the Video Player",
+    "description": "Play the video from the beginning for 600 seconds",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://www.twitch.tv/"
+        }
+      }
+    ],
+
+    "actions": [
+        {
+            "type": "comment",
+            "params": {
+                "words": "This is the begining of the twitch login process"
+            }
+        },
+
+        {
+            "type": "silentComment",
+            "words" : "Place words here for silent comments"
+        },
+
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "#root > div.Layout-sc-1xcs6mc-0.bBgSPF > div.Layout-sc-1xcs6mc-0.hodpZn > nav > div > div.Layout-sc-1xcs6mc-0.bZYcrx > div.Layout-sc-1xcs6mc-0.hdaUxc > div > div.Layout-sc-1xcs6mc-0.inMpaR.anon-user > div:nth-child(1) > button > div > div"
+        }
+      },
+
+
+      {
+        "type": "type",
+        "params": {
+          "text": "SwatSystemsLab",
+          "by": "css selector",
+          "selector": "#login-username"
+        }
+      },
+
+        {
+        "type": "type",
+        "params": {
+          "text": "ArrogantAnaconda11!",
+          "by": "css selector",
+          "selector": "#password-input"
+        }
+      },
+
+        {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "body > div.ReactModalPortal > div > div > div.Layout-sc-1xcs6mc-0.jIhssA.modal-wrapper__backdrop.modal-wrapper__backdrop--info > div > div > div.Layout-sc-1xcs6mc-0.bwACrq > div > div > div > div > div > div > div.Layout-sc-1xcs6mc-0.gPFjeX > form > div > div.Layout-sc-1xcs6mc-0.bEEvrF > div > div.Layout-sc-1xcs6mc-0.hWwYgb > div > button"
+        }
+      },
+
+
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "a.ScCoreLink-sc-16kq0mq-0.fytYW.preview-card-channel-link.tw-link[aria-label*=\"jynxzi (Verified) streaming [541/730] \ud83d\udfe8 PLAYING FORTNITE UNTIL I REACH GOLD @ 4:30 PM EST w/ RONDALE \ud83d\udfe8\"][href=\"/jynxzi\"]",
+          "x": 1218.5,
+          "y": 757.6875
+        }
+      },
+      
+            {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "x": 3450.5,
+          "y": 1810.6875
+        }
+      },
+
+
+     {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "#channel-player > div > div.Layout-sc-1xcs6mc-0.iqRXAC.player-controls__right-control-group > div:nth-child(1) > div:nth-child(2) > div > div > button",
+          "x": 1218.5,
+          "y": 757.6875
+        }
+      },
+
+     {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "body > div.ScReactModalBase-sc-26ijes-0.cfvyfk.tw-dialog-layer > div > div > div > div > div.ScBalloonWrapper-sc-14jr088-0.kwRewi.InjectLayout-sc-1i43xsx-0.kCsLVM.tw-balloon > div > div > div:nth-child(3) > div:nth-child(3) > button > div",
+          "x": 1500.5,
+          "y": 757.6875
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "body > div.ScReactModalBase-sc-26ijes-0.cfvyfk.tw-dialog-layer > div > div > div > div > div.ScBalloonWrapper-sc-14jr088-0.kwRewi.InjectLayout-sc-1i43xsx-0.kCsLVM.tw-balloon > div > div > div:nth-child(3) > div:nth-child(2) > div > div > div > div > div > label > div > div > span",
+          "x": 2000.5,
+          "y": 757.6875
+        }
+      },
+
+      {
+        "type": "start_stats_logging",
+        "params": {
+          "out_path": "/capture/stats/twitch_stats.jsonl",
+          "interval": 0.1
+        }
+      },
+
+
+
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 5
+        }
+      },
+      {
+        "type": "stop_stats_logging",
+        "params":{}
+
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The first live video has been clicked as per the user's instruction."
+        }
+      }
+    ],
+    "end_state": "Action Completed",
+    "executed": []
+  }
+]
