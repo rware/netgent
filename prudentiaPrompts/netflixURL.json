@@ -70,7 +70,10 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": ".default-ltr-iqcdef-cache-sev62h"
+          "selector": ".default-ltr-iqcdef-cache-sev62h",
+          "x": 50.5,
+          "y": 50.0
+
         }
       },
       {
