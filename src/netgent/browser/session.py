@@ -22,8 +22,9 @@ class BrowserSession:
             "--window-size=1920,1080",
             "--start-maximized",
             "--disable-gpu",
-            "--ssl-key-log-file=/opt/SSLkeylogs/sslkeylog.log"
+            #"--ssl-key-log-file=/opt/SSLkeylogs/sslkeylog.log"
         ]
+        os.environ["SSLKEYLOGFILE"] = "/capture/tar_dir/sslkeylog.log"
         if user_data_dir:
             self._default_args.append(f" --user-data-dir={user_data_dir}")
         import os
