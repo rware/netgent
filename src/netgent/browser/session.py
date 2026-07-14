@@ -27,7 +27,6 @@ class BrowserSession:
         os.environ["SSLKEYLOGFILE"] = "/capture/tar_dir/sslkeylog.log"
         if user_data_dir:
             self._default_args.append(f" --user-data-dir={user_data_dir}")
-        import os
         net_log_path = os.environ.get('NETGENT_NET_LOG')
         if net_log_path:
             self._default_args.append(f"--log-net-log={net_log_path}")
