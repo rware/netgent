@@ -6,7 +6,7 @@
 # sets to out/<workflow-name>/ so parallel workflows never clobber each other.
 set -euo pipefail
 
-URL="${WGET_URL:-https://www.python.org/ftp/python/3.15.0/Python-3.15.0b2.tgz}"
+URL="https://file-examples.com/wp-content/storage/2017/04/file_example_MP4_480_1_5MG.mp4"
 
 echo "[wget] downloading: $URL"
 wget --no-verbose --output-document=download.bin "$URL"
