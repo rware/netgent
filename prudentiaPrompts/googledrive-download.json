@@ -14,7 +14,7 @@
       {
         "type": "navigate",
         "params": {
-          "url": "https://drive.usercontent.google.com/download?id=1twmTO68VmdVkaxF09gli2lQ3x0fi_etX&export=download"
+          "url": "https://drive.usercontent.google.com/download?id=1p__OCmG01hfXp8G7wWvKMINBuMyo9w-Z&export=download"
         }
       },
       {
@@ -50,12 +50,6 @@
         }
       },
       {
-        "type": "text",
-        "params": {
-          "text": "prudentiaTenGigs.bin"
-        }
-      },
-      {
         "type": "element",
         "params": {
           "by": "css selector",
@@ -75,13 +69,6 @@
           "by": "css selector",
           "selector": "span.uc-name-size"
         }
-      },
-      {
-        "type": "element",
-        "params": {
-          "by": "css selector",
-          "selector": "a[href=\"/open?id=1twmTO68VmdVkaxF09gli2lQ3x0fi_etX\"]"
-        }
       }
     ],
     "actions": [
@@ -89,7 +76,7 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
+          "selector": "#uc-download-link",
           "x": 1778.5703125,
           "y": 309.265625
         }
