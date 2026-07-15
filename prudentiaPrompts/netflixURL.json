@@ -12,31 +12,9 @@
     ],
     "actions": [
       {
-        "type": "type",
+        "type": "navigate",
         "params": {
-          "text": "Netflix login page",
-          "by": "css selector",
-          "selector": "input.truncate[id=\"input\"][type=\"search\"][autocomplete=\"on\"][role=\"combobox\"][placeholder*=\"Search Google or type a URL\"]",
-          "x": 1901.5,
-          "y": 377.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "cr-searchbox-match[role=\"option\"][aria-describedby=\"\"][aria-label*=\"Netflix login page search, Google Search\"]",
-          "x": 1920.5,
-          "y": 423.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "cite.qLRx3b.tjvcx.GvPZzd.cHaqb[role=\"text\"]",
-          "x": 356.640625,
-          "y": 288.0
+          "url": "https://www.netflix.com/login"
         }
       },
       {
@@ -57,30 +35,29 @@
           "y": 400.0
         }
       },
-
+      {
+            "type": "comment",
+            "params": {
+                "words": "Clicking on the get help button"
+            }
+      },
       {
         "type": "click",
         "params": {
           "by": "css selector",
+          "selector": "#appMountPoint > div > div > div > div > div > div.default-ltr-iqcdef-cache-1xu4b8d.e1ei60ly0 > div > form > div > div > div > div > div > div > div > div:nth-child(4) > div > div > div:nth-child(1) > div > div > div > button > div > div > div:nth-child(1) > p",
+          "x": 1725.5,
+          "y": 480.0
+
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "#appMountPoint > div > div > div > div > div > div.default-ltr-iqcdef-cache-1xu4b8d.e1ei60ly0 > div > form > div > div > div > div > div > div > div > div:nth-child(4) > div > div > div:nth-child(2) > div > div > div > div > div:nth-child(2) > span > a",
           "x": 1725.5,
           "y": 548.0
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": ".default-ltr-iqcdef-cache-sev62h",
-          "x": 50.5,
-          "y": 50.0
-
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": ".default-ltr-iqcdef-cache-1946l91 > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > a:nth-child(1)"
         }
       },
       {
@@ -97,7 +74,7 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": ".default-ltr-iqcdef-cache-1hj3sb0",
+          "selector": "#appMountPoint > div > div > div > div > div > div.default-ltr-iqcdef-cache-1xu4b8d.e1ei60ly0 > div > form > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div:nth-child(2) > div > div > div:nth-child(1) > button",
           "x": 20,
           "y": 20
 
