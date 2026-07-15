@@ -94,69 +94,14 @@
           "y": 309.265625
         }
       },
+
       {
-        "type": "click",
+        "type": "wait",
         "params": {
-          "by": "css selector",
-          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
-          "x": 1778.5703125,
-          "y": 309.265625
+          "seconds": 25
         }
       },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
-          "x": 1778.5703125,
-          "y": 309.265625
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
-          "x": 1778.5703125,
-          "y": 309.265625
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
-          "x": 1778.5703125,
-          "y": 309.265625
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
-          "x": 1778.5703125,
-          "y": 309.265625
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
-          "x": 1778.5703125,
-          "y": 309.265625
-        }
-      },
-      {
-        "type": "click",
-        "params": {
-          "by": "css selector",
-          "selector": "input.goog-inline-block.jfk-button.jfk-button-action[type=\"submit\"][id=\"uc-download-link\"]",
-          "x": 1778.5703125,
-          "y": 309.265625
-        }
-      },
+
       {
         "type": "terminate",
         "params": {
