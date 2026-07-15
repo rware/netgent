@@ -98,7 +98,7 @@
       {
         "type": "wait",
         "params": {
-          "seconds": 25
+          "seconds": 600
         }
       },
 
