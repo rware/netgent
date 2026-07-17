@@ -101,6 +101,7 @@ function twitchStats() {
 // fiber tree off a player DOM node. Undocumented internals, so this is
 // best-effort: a missing instance or renamed method yields a missing field
 // rather than a failed sample.
+
 function twitchPlayerInstance() {
     const roots = document.querySelectorAll(
         '[data-a-target="video-player"], .video-player, .persistent-player, video');

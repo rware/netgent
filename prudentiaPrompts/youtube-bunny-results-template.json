@@ -2,7 +2,7 @@
 
   {
     "name": "On Browser Home Page",
-    "description": "Start the Process",
+    "description  ": "Start the Process",
     "checks": [
       {
         "type": "url",
