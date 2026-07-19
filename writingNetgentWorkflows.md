@@ -9,7 +9,7 @@
 Checks are in one of three forms, checking if the URL is a specific URL, checking if their is a certain substring of text on the page, or checking if their is a certain CSS selector element located on the page. These checks all have differnt uses, a URL specific check should only be used if you are confident that you have the correct URL for the page, most likely meaning that you have navigated to the page in a previos state and you want to verify that you navigated to the correct page. It is important to note that webpages frequently redirect your url meaning that navigating to one URL does not garuntee that you will arive at that URL. As an example navigating to https://www.netflix.com/login will redirect you to a URL similair to https://www.netflix.com/login?serverState=Bgjru%2BvcAxK1AazE7x%2FuVM5g1ynel%2FqIEplIEI%2FWkEjrzwa%2BGQcba8waLncsoywDq5Mn%2FdF8qY%2Bj5iIVcOFZCdmEqzOa3T%2F1l1bJ3GdIF%2F%2F%2FNhEuvvlu5gmdYmmJHClFUvwbEipZAgf30eV5XWp5F59RdBGiwyiZqlNzUUN89k6At6Vc04cFHCe9yIYqB9%2BP1Pltzjfi%2B15ZhdCLb7YA8zp8PrBwW%2FiCd2Qpuc4fpnOLfZNSgmP9qt8Qmull0pgYBiIOCgw8%2BCkJ1OKBqLks5co%3D which would result in any check that looks at the URL to determine wether you have arrived at netflix.com/login determining that you have not. Next are text based checks which search a page for text, these are generally relliable however as a general rule if you can't highlight the text on the page and copy and paste it into a .txt document you should not use it in a check. This is becuase not everything on a page that is identifiable as text to the user will be considered text, as an example although the netflix login page whose link was previosly refrenced although to the human inspection the link obviosly has Netflix written on it from a human perspective, it will not be recognized as text by this check. Lastly CSS selector checks, these are useful for identifying if their is a particular CSS on a page however they should otherwise be avoided as some websites change their CSS layout fairly regularly making this method more brittle.
 
 ## Example of how a checks are formated
-Text Based Check
+### Text Based Check
 '''
       {
         "type": "text",
@@ -18,12 +18,90 @@ Text Based Check
         }
       },
 '''
-URL Based Check
+### URL Based Check
 '''
       {
         "type": "url",
         "params": {
-          "url": "chrome://new-tab-page/"
+          "url": "URL goes here"
         }
       }
 '''
+### CSS Based Check
+'''
+      {
+        "type": "element",
+        "params":{
+          "by": "css selector",
+          "selector": "CSS Selector being looked for goes here"
+        }
+      }
+'''
+
+# Writing usefull actions
+Their are three different types of actions, click, navigate, type, and wait. Click actions acept some combination of x, y cordinates or a CSS selector or both. If using both xy cordiates and a CSS selector the CSS selector will be attempted first with the xy cordinates only being used if the CSS element can't be located. Navigate is an incredibly useful comand as takes the URL you want to go to and navigates to it, by clicking on the search bar, typing in the URL then hitting enter, going to the specified URL. The type action is interesting as it combines a click action with typing out a string as if entered on the keyboard, acepting some combination of a xy cordinate or CSS selector, enabling you to enter a password or otherwise type somthing out. Wait actions acept only a single parameter, the duration and then have to program stay on the same page not doing anything for the duration of the action.
+
+## Example of How Actions are Formated
+### Click Action
+'''
+    {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "CSS Selector Here",
+          "x": 20,
+          "y": 20,
+        }
+      },
+#Alternitivly
+    {
+        "type": "click",
+        "params":{
+            "x": 1000,
+            "y": 500
+        }
+    },
+#Alternitivly
+    {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": ".primary-button > button:nth-child(1)"
+        }
+      },
+'''
+### Navigate Action
+'''
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://www.netflix.com/login"
+        }
+      },
+'''
+
+### Type action
+'''
+      {
+        "type": "type",
+        "params": {
+          "text": "MushroomLab",
+          "by": "css selector",
+          "selector": "#\\:re\\:",
+          "x": 1920.5,
+          "y": 338.0
+        }
+      },
+'''
+### Wait Action
+'''
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 600
+        }
+      },
+'''
+
+# Puting it all together
+For putting this all together it is easeist to start with an existing template then modify it to suit your needs. If you feel like attempting AI content generation it is worth atempting but keep in mind that if the AI runs fully and does not generate somthing useful to you it is unlikly that changing how your prompts are formated will substantially improve performance in a short time. After an AI generation run fails to achive your desired results it is recomended that you start manually writing out your netgent prompt, using this document to guide you. Remember trail and error is your friend and that running netgent workflows outside of generation mode is free. For an easy way to generate using AI mode place your python file inside the prudentia prompts folder and run generateWorkflow.sh with your files name (not file path). To easily run your workflow place the json file inside prudentia prompts then run runWorkflow.sh with your files name (not file path). Good luck with your workflow generation.
