@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+trap '' SIGUSR1
+trap '' SIGCONT
+
+
 # ---------------------------------------------------------------------------
 # NetGent container entrypoint.
 #

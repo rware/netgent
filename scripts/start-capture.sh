@@ -13,4 +13,7 @@ set -euo pipefail
 # Works in both legacy (-e/-g) and multi-workflow modes.
 # ============================================================================
 
+trap '' SIGUSR1
+trap '' SIGCONT
+
 exec env OUT_DIR="${OUT_DIR:-/capture}" /usr/local/bin/start-netgent --capture "$@"
