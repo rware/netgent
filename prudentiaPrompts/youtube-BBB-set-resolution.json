@@ -1,0 +1,109 @@
+[
+  {
+    "name": "On Browser Home Page",
+    "description": "Start the Process",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "chrome://new-tab-page/"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The YouTube video has loaded successfully. As per the instructions, the next step is to terminate the task."
+        }
+      }
+    ],
+    "end_state": "",
+    "executed": []
+  },
+  {
+    "name": "On the Video Player",
+    "description": "Play the video from the beginning for 30 seconds",
+    "checks": [
+      {
+        "type": "url",
+        "params": {
+          "url": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "#movie_player > div.ytp-chrome-bottom > div.ytp-chrome-controls > div.ytp-right-controls > div.ytp-right-controls-left > button.ytp-button.ytp-settings-button"        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "#ytp-id-5 > div.ytp-popup-content > div > div > div:nth-child(6) > div.ytp-menuitem-label",
+          "x": 60,
+          "y": 60
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "x": 2400,
+          "y": 890
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "#movie_player > div.ytp-chrome-bottom > div.ytp-chrome-controls > div.ytp-right-controls > div.ytp-right-controls-left > button.ytp-button.ytp-settings-button"        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "#ytp-id-5 > div.ytp-popup-content > div > div > div:nth-child(6) > div.ytp-menuitem-label",
+          "x": 60,
+          "y": 60
+        }
+      },
+
+      {
+        "type": "start_stats_logging",
+        "params": {
+          "out_path": "/capture/youtube_stats.jsonl",
+          "interval": 0.1
+        }
+      },
+      {
+        "type": "wait",
+        "params": {
+          "seconds": 10
+        }
+      },
+      {
+        "type": "stop_stats_logging",
+        "params":{}
+
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "The video has been played from the beginning and the 600-second wait is complete. Terminating the task as per instructions."
+        }
+      }
+    ],
+    "end_state": "Action Completed",
+    "executed": []
+  }
+]
