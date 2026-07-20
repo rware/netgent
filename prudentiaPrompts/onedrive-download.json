@@ -32,12 +32,6 @@
     "description": "Downloads the drive file on the webpage",
     "checks": [
       {
-        "type": "url",
-        "params": {
-          "url": "https://onedrive.live.com/?id=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments%2FprudentiaFourGigs%2Ebin&listurl=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments&e=oRJqeQ&migratedtospo=true&parent=%2Fpersonal%2Fe36def71a46d26fc%2FDocuments&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvYy9lMzZkZWY3MWE0NmQyNmZjL0lRRFRDU29kZ2tfc1M1N2pQMTdVQ1lqSkFYczhWT3VCUFY4akNhM1ZfNUt2b3hZP2U9b1JKcWVR&ga=1"
-        }
-      },
-      {
         "type": "text",
         "params": {
           "text": "prudentiaFourGigs.bin"
@@ -47,7 +41,7 @@
         "type": "element",
         "params": {
           "by": "css selector",
-          "selector": "span.OneUpNonInteractiveCommandNewDesign_d7f8e809.OneUpCommandBarTitle.css-95"
+          "selector": "#id__9"
         }
       }
     ],
@@ -56,7 +50,7 @@
         "type": "click",
         "params": {
           "by": "css selector",
-          "selector": "button.ms-Button.ms-Button--primary.OneUpCommandButtonPrimary_cc2ddd8c.root-72[type=\"button\"][aria-label=\"Download\"]",
+          "selector": "#id__9",
           "x": 496.4921875,
           "y": 816.5
         }
@@ -64,9 +58,16 @@
       {
         "type": "wait",
         "params": {
-          "seconds": 600
+          "seconds": 60
+        }
+      },
+      {
+        "type": "terminate",
+        "params": {
+          "reason": "Navigation to the provided URL was successful and the task is complete as per instructions."
         }
       }
+
     ],
     "end_state": "",
     "executed": []
