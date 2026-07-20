@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.support.ui import WebDriverWait
+from random import random
 
 class BaseController(ABC, metaclass=ActionTriggerMeta):
     """Base controller with automatic action and trigger registration via combined metaclass."""
@@ -20,6 +21,12 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
     def navigate(self, url: str):
         """Navigate to a specified URL"""
         self.driver.get(url)
+
+    @action()
+    def navigateRandom(self, url: str):
+        #Breack up the string of URLs into a list
+        options = url.split(",")
+        self.driver.get(options[int(random()*len(options))])
 
     @action()
     def comment(self, words: str):
