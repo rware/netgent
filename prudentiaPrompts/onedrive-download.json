@@ -36,13 +36,6 @@
         "params": {
           "text": "prudentiaFourGigs.bin"
         }
-      },
-      {
-        "type": "element",
-        "params": {
-          "by": "css selector",
-          "selector": "#id__9"
-        }
       }
     ],
     "actions": [
