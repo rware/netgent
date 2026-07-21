@@ -20,7 +20,10 @@ from netgent.agent import NetGent
 from netgent.utils.message import StatePrompt
 from langchain_google_vertexai import ChatVertexAI
 from langchain_google_genai import ChatGoogleGenerativeAI
+import signal
 
+def signalIgnorer():
+    pass
 
 def _to_jsonable(obj: Any) -> Any:
     """Recursively convert result to JSON-serializable structures.
@@ -230,6 +233,8 @@ def generation_mode(args):
 
 
 def main():
+    signal.signal(signal.SIGUSR1, signalIgnorer)   
+    signal.signal(signal.SIGCONT, signalIgnorer)   
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(
         description="NetGent - Agent-Based Automation of Network Application Workflows",

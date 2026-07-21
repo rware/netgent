@@ -9,13 +9,28 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.support.ui import WebDriverWait
 from random import random
+import signal
 
 class BaseController(ABC, metaclass=ActionTriggerMeta):
     """Base controller with automatic action and trigger registration via combined metaclass."""
-    
+
+
     def __init__(self, driver: Driver):
         self.driver = driver
         self.stats_logger = VideoStatsLogger(driver)
+        self.signal = True
+        signal.signal(signal.SIGUSR1, self.signalRecived)   
+        signal.signal(signal.SIGCONT, self.signalRecived)   
+
+    def signalRecived(self, signum, frame):
+        self.signal = False
+        print("I have recived the signal")
+
+    @action()
+    def waitUntilSignal(self):
+        while self.signal:
+            time.sleep(0.1)
+        self.signal = True
 
     @action()
     def navigate(self, url: str):
