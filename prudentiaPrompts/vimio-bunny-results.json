@@ -11,6 +11,9 @@
       }
     ],
     "actions": [
+            {
+        "type": "waitUntilSignal"
+      },
       {
         "type": "navigate",
         "params": {

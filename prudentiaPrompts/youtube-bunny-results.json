@@ -12,6 +12,9 @@
     ],
     "actions": [
       {
+        "type": "waitUntilSignal"
+      },
+      {
         "type": "navigate",
         "params": {
           "url": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
@@ -49,7 +52,7 @@
       {
         "type": "wait",
         "params": {
-          "seconds": 600
+          "seconds": 6
         }
       },
       {

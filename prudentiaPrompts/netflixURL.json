@@ -110,12 +110,17 @@
 
         }
       },
+      
       {
         "type": "navigate",
         "params": {
           "url": "https://www.netflix.com/title/81652570"
         }
       },
+      {
+        "type": "waitUntilSignal"
+      },
+
     {
         "type": "click",
         "params": {

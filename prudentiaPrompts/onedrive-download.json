@@ -39,6 +39,9 @@
       }
     ],
     "actions": [
+            {
+        "type": "waitUntilSignal"
+      },
       {
         "type": "click",
         "params": {
