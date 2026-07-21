@@ -54,7 +54,7 @@
       {
         "type": "wait",
         "params": {
-          "seconds": 600
+          "seconds": 60
         }
       },
       {
@@ -65,7 +65,7 @@
       }
 
     ],
-    "end_state": "",
+    "end_state": "Action Completed",
     "executed": []
   }
 ]
