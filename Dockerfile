@@ -73,5 +73,6 @@ RUN pip install pyvirtualdisplay
 
 COPY prudentiaPrompts/ /home/agent/app
 
+COPY env_vars.txt /workspace/env_vars.txt
 
 ENTRYPOINT ["/bin/bash"]
