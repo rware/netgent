@@ -18,6 +18,12 @@
         }
       },
       {
+        "type": "wait",
+        "params": {
+          "seconds": 5
+        }
+      },
+      {
         "type": "terminate",
         "params": {
           "reason": "The YouTube video has loaded successfully. As per the instructions, the next step is to terminate the task."
@@ -29,7 +35,7 @@
   },
   {
     "name": "On the Video Player",
-    "description": "Play the video from the beginning for 30 seconds",
+    "description": "Play the video from the beginning for 300 seconds",
     "checks": [
       {
         "type": "url",
@@ -48,18 +54,15 @@
       {
         "type": "click",
         "params": {
-          "by": "css selector",
-          "selector": "#ytp-id-5 > div.ytp-popup-content > div > div > div:nth-child(6) > div.ytp-menuitem-label",
-          "x": 60,
-          "y": 60
+          "by": "xpath",
+          "selector": "//div[contains(@class,'ytp-panel-menu')]/div[contains(@class,'ytp-menuitem')][.//div[contains(@class,'ytp-menuitem-label') and starts-with(normalize-space(.),'Quality')]]"
         }
       },
       {
         "type": "click",
         "params": {
-          "by": "css selector",
-          "x": 2400,
-          "y": 890
+          "by": "xpath",
+          "selector": "//div[contains(@class,'ytp-quality-menu')]//div[contains(@class,'ytp-menuitem')][.//span[starts-with(normalize-space(.),'1080p')]]"
         }
       },
       {
@@ -71,10 +74,8 @@
       {
         "type": "click",
         "params": {
-          "by": "css selector",
-          "selector": "#ytp-id-5 > div.ytp-popup-content > div > div > div:nth-child(6) > div.ytp-menuitem-label",
-          "x": 60,
-          "y": 60
+          "by": "xpath",
+          "selector": "//div[contains(@class,'ytp-panel-menu')]/div[contains(@class,'ytp-menuitem')][.//div[contains(@class,'ytp-menuitem-label') and starts-with(normalize-space(.),'Quality')]]"
         }
       },
 
@@ -88,7 +89,7 @@
       {
         "type": "wait",
         "params": {
-          "seconds": 10
+          "seconds": 300
         }
       },
       {
@@ -99,7 +100,7 @@
       {
         "type": "terminate",
         "params": {
-          "reason": "The video has been played from the beginning and the 600-second wait is complete. Terminating the task as per instructions."
+          "reason": "The video has been played from the beginning and the 300-second wait is complete. Terminating the task as per instructions."
         }
       }
     ],
