@@ -12,9 +12,9 @@
     ],
     "actions": [
       {
-        "type": "navigate",
+        "type": "navigateRandom",
         "params": {
-          "url" : "https://drive.usercontent.google.com/download?id=1p__OCmG01hfXp8G7wWvKMINBuMyo9w-Z&export=download"
+          "url": "https://drive.usercontent.google.com/download?id=1p__OCmG01hfXp8G7wWvKMINBuMyo9w-Z&export=download,https://drive.usercontent.google.com/download?id=1twmTO68VmdVkaxF09gli2lQ3x0fi_etX&export=download,https://drive.usercontent.google.com/download?id=1ATuiCKP4kkBwQer27NT8Kj30AXjSvW0h&export=download"
         }
       },
       {
@@ -72,7 +72,7 @@
       }
     ],
     "actions": [
-            {
+      {
         "type": "waitUntilSignal"
       },
       {
@@ -88,7 +88,7 @@
       {
         "type": "wait",
         "params": {
-          "seconds": 60
+          "seconds": 600
         }
       },
 
@@ -99,38 +99,7 @@
         }
       }
     ],
-    "end_state": "",
+    "end_state": "Action Completed",
     "executed": []
-  },
-
-  {
-    "name": "Download failed",
-    "description": "Recognizes download fialure and tries again",
-    "checks": [
-      {
-        "type": "text",
-        "params": {
-          "text": "you can't"
-        }
-      }
-    ],
-    "actions": [
-      {
-        "type" : "wait",
-        "params" : {
-          "seconds": 60
-        }
-      },
-      {
-        "type": "terminate",
-        "params": {
-          "reason": "Reached download blocked page."
-        }
-      }
-    ],
-    "end_state": "",
-    "executed": []
-
   }
-
 ]
