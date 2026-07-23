@@ -107,20 +107,17 @@
           "selector": ".color-primary",
          "x": 20,
           "y": 20
-
-        }
-      },
-      
-      {
-        "type": "navigate",
-        "params": {
-          "url": "https://www.netflix.com/title/81652570"
         }
       },
       {
         "type": "waitUntilSignal"
       },
-
+      {
+        "type": "navigate",
+        "params": {
+          "url": "https://www.netflix.com/watch/81652584?trackId=14277283&tctx=-97%2C-97%2C%2C%2C%2C%2C%2C%2C81652570%2CVideo%3A81652584%2CdetailsPageEpisodePlayButton"
+        }
+      },
     {
         "type": "click",
         "params": {
@@ -134,7 +131,7 @@
       {
         "type": "wait",
         "params": {
-          "seconds": 600
+          "seconds": 60
         }
       },
 
