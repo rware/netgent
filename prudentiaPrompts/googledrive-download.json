@@ -73,9 +73,6 @@
     ],
     "actions": [
       {
-        "type": "waitUntilSignal"
-      },
-      {
         "type": "click",
         "params": {
           "by": "css selector",

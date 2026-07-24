@@ -12,9 +12,6 @@
     ],
     "actions": [
       {
-        "type": "waitUntilSignal"
-      },
-      {
         "type": "navigate",
         "params": {
           "url": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
