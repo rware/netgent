@@ -14,7 +14,7 @@ from random import random
 import signal
 import os
 import subprocess
-
+import sys
 
 class BaseController(ABC, metaclass=ActionTriggerMeta):
     """Base controller with automatic action and trigger registration via combined metaclass."""
@@ -28,7 +28,7 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
         self.signal = True
         signal.signal(signal.SIGUSR1, self.signalRecived)  
         signal.signal(signal.SIGCONT, self.signalRecived)  
-
+        
 
     def signalRecived(self, signum, frame):
         self.signal = False
@@ -44,6 +44,21 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
             if "true" in cmd.stdout:
                 break
 
+
+
+    @action(name="checkElement")
+    def check_element_action(self, by: str, selector: str, check_visibility: bool = True, timeout: float = 0.1) -> bool:
+        """Check if an element exists and optionally if it's visible."""
+        try:
+            element = WebDriverWait(self.driver, timeout).until(
+                EC.presence_of_element_located((by, selector))
+            )
+            if check_visibility:
+                return self.is_element_visible_in_viewpoint(element)
+            return True
+        except Exception:
+            print(f"CSS Element {selector} not found by check element action, exiting")
+            sys.exit(1)
 
 
 
