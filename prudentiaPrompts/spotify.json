@@ -78,7 +78,7 @@
       {
         "type": "type",
         "params": {
-          "text": "jkrauze1@swarthmore.edu",
+          "text": "ssl@cs.swarthmore.edu",
           "by": "css selector",
           "selector": "#username",
           "x": 1920.5,
