@@ -36,6 +36,13 @@
         }
       },
       {
+        "type": "wait",
+        "params": {
+          "seconds": 5
+        }
+      },
+
+      {
             "type": "comment",
             "params": {
                 "words": "Clicking on the get help button"
@@ -128,7 +135,7 @@
       {
         "type": "wait",
         "params": {
-          "seconds": 600
+          "seconds": 60
         }
       },
 
