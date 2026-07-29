@@ -14,7 +14,7 @@
       {
         "type": "navigate",
         "params": {
-          "url": "https://www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig"
+          "url": "https://www.youtube.com/watch?v=QB5BNdBFujE"
         }
       },
       {
@@ -34,29 +34,56 @@
       {
         "type": "url",
         "params": {
-          "url": "https://www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig"
+          "url": "https://www.youtube.com/watch?v=QB5BNdBFujE"
         }
       }
     ],
     "actions": [
+      
     {
         "type": "click",
-        "params":{
-            "x": 1000,
-            "y": 500
+        "params": {
+          "by": "css selector",
+          "selector": "#movie_player > div.ytp-chrome-bottom > div.ytp-chrome-controls > div.ytp-right-controls > div.ytp-right-controls-left > button.ytp-button.ytp-settings-button"        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "xpath",
+          "selector": "//div[contains(@class,'ytp-panel-menu')]/div[contains(@class,'ytp-menuitem')][.//div[contains(@class,'ytp-menuitem-label') and starts-with(normalize-space(.),'Quality')]]"
         }
-    },
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "xpath",
+          "selector": "//div[contains(@class,'ytp-quality-menu')]//div[contains(@class,'ytp-menuitem')][.//span[starts-with(normalize-space(.),'1080p')]]"
+        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "css selector",
+          "selector": "#movie_player > div.ytp-chrome-bottom > div.ytp-chrome-controls > div.ytp-right-controls > div.ytp-right-controls-left > button.ytp-button.ytp-settings-button"        }
+      },
+      {
+        "type": "click",
+        "params": {
+          "by": "xpath",
+          "selector": "//div[contains(@class,'ytp-panel-menu')]/div[contains(@class,'ytp-menuitem')][.//div[contains(@class,'ytp-menuitem-label') and starts-with(normalize-space(.),'Quality')]]"
+        }
+      },
       {
         "type": "start_stats_logging",
         "params": {
-          "out_path": "/capture/stats/youtube_stats.jsonl",
-          "interval": 2.0
+          "out_path": "/capture/youtube_stats.jsonl",
+          "interval": 0.1
         }
       },
       {
         "type": "wait",
         "params": {
-          "seconds": 180
+          "seconds": 300
         }
       },
       {
