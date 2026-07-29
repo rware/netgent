@@ -4,38 +4,69 @@ import time
 from ..registry import action, trigger, ActionTriggerMeta
 from ..stats_logger import VideoStatsLogger
 
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+
 
 from selenium.webdriver.support.ui import WebDriverWait
 from random import random
 import signal
+import os
+import subprocess
+import sys
 
 class BaseController(ABC, metaclass=ActionTriggerMeta):
     """Base controller with automatic action and trigger registration via combined metaclass."""
+
+
 
 
     def __init__(self, driver: Driver):
         self.driver = driver
         self.stats_logger = VideoStatsLogger(driver)
         self.signal = True
-        signal.signal(signal.SIGUSR1, self.signalRecived)   
-        signal.signal(signal.SIGCONT, self.signalRecived)   
+        signal.signal(signal.SIGUSR1, self.signalRecived)  
+        signal.signal(signal.SIGCONT, self.signalRecived)  
+        
 
     def signalRecived(self, signum, frame):
         self.signal = False
         print("I have recived the signal")
 
+
     @action()
     def waitUntilSignal(self):
-        while self.signal:
-            time.sleep(0.1)
-        self.signal = True
+        # run_cmd('source /etc/environment')
+        subprocess.run(["echo ready >> /workspace/env_vars.txt"], capture_output=True, text=True, shell=True)
+        while True:
+            cmd = subprocess.run(["cat /workspace/env_vars.txt"], capture_output=True, text=True, shell=True)
+            if "true" in cmd.stdout:
+                break
+
+
+
+    @action(name="checkElement")
+    def check_element_action(self, by: str, selector: str, check_visibility: bool = True, timeout: float = 0.1) -> bool:
+        """Check if an element exists and optionally if it's visible."""
+        try:
+            element = WebDriverWait(self.driver, timeout).until(
+                EC.presence_of_element_located((by, selector))
+            )
+            if check_visibility:
+                return self.is_element_visible_in_viewpoint(element)
+            return True
+        except Exception:
+            print(f"CSS Element {selector} not found by check element action, exiting")
+            sys.exit(1)
+
+
 
     @action()
     def navigate(self, url: str):
         """Navigate to a specified URL"""
         self.driver.get(url)
+
 
     @action()
     def navigateRandom(self, url: str):
@@ -43,17 +74,21 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
         options = url.split(",")
         self.driver.get(options[int(random()*len(options))])
 
+
     @action()
     def comment(self, words: str):
         print(words)
+
 
     @action()
     def silentComment(self):
         pass
 
+
     @action()
     def start_stats_logging(self, out_path: str = "netgent_video_stats.jsonl", interval: float = 2.0):
         """Start logging video 'Stats for Nerds' metrics (YouTube/Twitch) to a JSONL file in the background.
+
 
         Args:
             out_path: File to append JSONL stats samples to
@@ -63,22 +98,24 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
         self.stats_logger.start()
         return out_path
 
+
     @action()
     def stop_stats_logging(self):
         """Stop the background video stats logger and flush the log file."""
         self.stats_logger.stop()
 
+
     @action()
     def wait(self, seconds: float):
         """Wait for a specified number of seconds"""
         time.sleep(seconds)
-    
+   
     @action()
     def terminate(self, reason: str = "Task completed"):
         """Terminate the agent execution"""
         print(f"TERMINATING: {reason}")
         return reason
-    
+   
     def quit(self):
         """Quit the browser (not an action - used for cleanup)"""
         if self.stats_logger:
@@ -86,12 +123,13 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
         if self.driver:
             self.driver.quit()
 
+
     # -- Actions Methods --
     @abstractmethod
     @action()
     def click(self, by: str = None, selector: str = None, x: float = None, y: float = None, percentage: float = 0.5):
         """Click on a specified element or coordinates.
-        
+       
         Args:
             by: Locator strategy (optional)
             selector: Selector string (optional)
@@ -101,11 +139,12 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
         """
         pass
 
+
     @abstractmethod
     @action(name="type")  # Custom name to match common JSON schema naming
     def type_text(self, text: str, by: str = None, selector: str = None, x: float = None, y: float = None):
         """Type text into a specified element or at coordinates.
-        
+       
         Args:
             text: Text to type
             by: Locator strategy (optional)
@@ -114,12 +153,12 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
             y: Y coordinate (optional, used if by/selector not provided or fails)
         """
         pass
-    
+   
     @abstractmethod
     @action()
     def scroll_to(self, by: str = None, selector: str = None, x: float = None, y: float = None):
         """Scroll to a specified element or coordinates.
-        
+       
         Args:
             by: Locator strategy (optional)
             selector: Selector string (optional)
@@ -127,12 +166,12 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
             y: Y coordinate (optional, used if by/selector not provided or fails)
         """
         pass
-    
+   
     @abstractmethod
     @action()
     def scroll(self, pixels: int, direction: str, by: str = None, selector: str = None, x: float = None, y: float = None):
         """Scroll a specified number of pixels in a specified direction.
-        
+       
         Args:
             pixels: Number of pixels to scroll
             direction: Direction to scroll ("up" or "down")
@@ -142,18 +181,19 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
             y: Y coordinate (optional, used if by/selector not provided or fails)
         """
         pass
-    
+   
     @abstractmethod
     @action()
     def press_key(self, key: str):
         """Press a specified key"""
         pass
 
+
     @abstractmethod
     @action()
     def move(self, by: str = None, selector: str = None, x: float = None, y: float = None, percentage: float = 0.5):
         """Move to a specified element or coordinates.
-        
+       
         Args:
             by: Locator strategy (optional)
             selector: Selector string (optional)
@@ -163,17 +203,20 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
         """
         pass
 
+
     def is_element_visible_in_viewpoint(self, element) -> bool:
         return self.driver.execute_script("""
     const elem = arguments[0];
     const style = window.getComputedStyle(elem);
     const rect = elem.getBoundingClientRect();
 
+
     const isVisible = (
         style.display !== 'none' &&
         style.visibility !== 'hidden' &&
         style.opacity !== '0'
     );
+
 
     const isInViewport = (
         rect.top >= 0 &&
@@ -182,8 +225,10 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 
+
     return isVisible && isInViewport;
 """, element)
+
 
     # -- Trigger Methods --
     @trigger(name="element")
@@ -198,7 +243,7 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
             return True
         except Exception:
             return False
-    
+   
     @trigger(name="url")
     def check_url(self, url: str) -> bool:
         """Check if the current URL matches the given URL."""
@@ -206,6 +251,7 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
             return self.driver.current_url == url
         except Exception:
             return False
+
 
     @trigger(name="text")
     def check_text(self, text: str, check_visibility: bool = True, timeout: float = 0.1) -> bool:
@@ -220,15 +266,16 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
         except Exception:
             return False
 
-    
+
+   
     def get_element_coordinates(self, x, y, width, height, percentage=0.5):
         """
         Get the absolute screen coordinates for an element.
-        
+       
         Args:
             element: Selenium WebElement
             percentage: Horizontal offset percentage within the element (0.0 to 1.0)
-            
+           
         Returns:
             tuple: (abs_x, abs_y) absolute screen coordinates
         """
@@ -236,28 +283,38 @@ class BaseController(ABC, metaclass=ActionTriggerMeta):
         element_x = x
         element_y = y
 
+
         # Get current scroll position
         scroll_x = self.driver.execute_cdp_cmd("Runtime.evaluate", {"expression": "window.pageXOffset || document.documentElement.scrollLeft", "returnByValue": True})["result"]["value"]
         scroll_y = self.driver.execute_cdp_cmd("Runtime.evaluate", {"expression": "window.pageYOffset || document.documentElement.scrollTop", "returnByValue": True})["result"]["value"]
 
+
         # Get browser window position and panel dimensions
         panel_height = self.driver.execute_cdp_cmd("Runtime.evaluate", {"expression": "window.outerHeight - window.innerHeight", "returnByValue": True})["result"]["value"]
         panel_width = self.driver.execute_cdp_cmd("Runtime.evaluate", {"expression": "window.outerWidth - window.innerWidth", "returnByValue": True})["result"]["value"]
-        
+       
         window_pos = self.driver.get_window_position()
         window_x = window_pos['x']
         window_y = window_pos['y']
+
 
         # Calculate coordinates relative to the viewport (subtract scroll position)
         viewport_x = element_x - scroll_x
         viewport_y = element_y - scroll_y
 
+
         # Calculate absolute screen coordinates (account for both horizontal and vertical panels)
         abs_x = window_x + viewport_x + panel_width
         abs_y = window_y + viewport_y + panel_height
 
+
         abs_x += width * percentage
         abs_y += height * 0.5
-        
+       
         return abs_x, abs_y
-    
+   
+
+
+
+
+
